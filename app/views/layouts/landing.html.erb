@@ -1,0 +1,15 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head></head>
+<body>
+  <script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script>
+  <div class="body">
+    <%= yield %>
+  </div>
+  
+  <ul>
+    <% Post.all.each do |post| %>
+      <li><%= link_to_post(post) %></li>
+    <% end %>
+  </ul>
+</body>
+</html>

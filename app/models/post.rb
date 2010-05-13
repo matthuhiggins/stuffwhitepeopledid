@@ -1,5 +1,9 @@
 class Post < Struct.new(:number, :title, :url)
   ARTICLES = [
+    new(132, "Picking their own Fruit", "2010/03/14/132-picking-their-own-fruit"),
+    new(131, "Conan O’Brien", "2010/01/13/130-conan-obrien"),
+    new(130, "Ray-Ban Wayfarers", "2009/12/22/130-ray-ban-wayfarers"),
+    new(129, "Banksy", "2009/10/04/129-banksy"),
     new(128, "Camping", "2009/08/14/128-camping"),
     new(127, "Where The Wild Things Area", "2009/07/13/127-where-the-wild-things-are"),
     new(126, "Vespa Scooters", "2009/06/02/126-vespa-scooters"),

@@ -1,6 +1,5 @@
-RAILS_GEM_VERSION = '2.3.2' unless defined? RAILS_GEM_VERSION
-require File.join(File.dirname(__FILE__), 'boot')
+# Load the rails application
+require File.expand_path('../application', __FILE__)
 
-Rails::Initializer.run do |config|
-  config.time_zone = 'UTC'
-end
+# Initialize the rails application
+StuffWhitePeopleDid::Application.initialize!

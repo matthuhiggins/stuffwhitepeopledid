@@ -5,4 +5,8 @@ class Accomplishment < ActiveRecord::Base
     Post.find(post_number)
   end
   delegate :number, :name, :url, :to => :post
+
+  def post=(post)
+    self.post_number = post.number
+  end
 end

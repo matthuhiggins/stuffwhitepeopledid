@@ -1,6 +1,3 @@
-ActionController::Routing::Routes.draw do |map|
-  map.root :controller => "landing"
-
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
+StuffWhitePeopleDid::Application.routes.draw do
+  root :to => "landing#index"
 end

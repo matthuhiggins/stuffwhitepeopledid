@@ -148,4 +148,9 @@ class Post < Struct.new(:number, :title, :url)
         @@articles_by_number ||= ARTICLES.index_by(&:number)
       end
   end
+
+  include Comparable
+  def <=>(post)
+    number <=> post.number
+  end
 end

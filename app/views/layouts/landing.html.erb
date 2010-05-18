@@ -7,11 +7,6 @@
   <div id="body">
     <%= yield %>
   </div>
-  
-  <ul>
-    <% Post.all.each do |post| %>
-      <li><%= link_to_post(post) %></li>
-    <% end %>
-  </ul>
+  <%= render 'shared/facebook_js' %>
 </body>
 </html>

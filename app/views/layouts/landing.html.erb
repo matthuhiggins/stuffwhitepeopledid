@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <head>
-  <%= stylesheet_link_tag 'reset', 'layout' %>
+  <%= stylesheet_link_tag 'reset', 'layout', controller_name %>
   <title>Stuff White People Did</title>
 </head>
 <body>
-
-  <div id="body">
+  <div id="banner">
+    <div id="header" class="body">
+      <%= link_to 'Stuff White People Did', root_path, :class => 'title' %>
+      <% if facebook_connected? %>
+        <%= facebook_picture(facebook_uid) %>
+      <% else %>
+        <fb:login-button></fb:login-button>
+      <% end %>
+    </div>
+  </div>
+  <div id="content" class="body">
     <%= yield %>
   </div>
   <%= render 'shared/facebook_js' %>

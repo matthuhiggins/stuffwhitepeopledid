@@ -1,0 +1,36 @@
+#recent-white-accomplishments {
+  padding-top: 10px;
+}
+
+#recent-white-accomplishments h2 {
+  padding-bottom: 16px;
+}
+
+#recent-white-accomplishments li {
+  overflow: hidden;
+  padding: 10px 0;
+}
+
+#recent-white-accomplishments li + li {
+  border-top: 1px solid #E9E9E9;
+}
+
+#recent-white-accomplishments .pic {
+  float: left;
+  margin-right: 10px;
+}
+
+#recent-white-accomplishments .accomplishment {
+  display: table-cell;
+  vertical-align: top;
+/*  width: 1000px;*/
+}
+
+#recent-white-accomplishments .message {
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+#recent-white-accomplishments .time {
+  color: #808080;
+}

@@ -1,0 +1,12 @@
+<div id="posts-show">
+  <h2>
+    <%= pluralize(@post.accomplishments.count, 'person') %> <%= @post.title %>
+    <%= link_to 'View original article', url_for_original_post(@post) %>
+  </h2>
+  <div class="have-you-done-this">
+    <a class="fb_button fb_button_medium">
+      <span class="fb_button_text">I cooked with Sea Salt</span>
+    </a>
+  </div>
+</div>
+

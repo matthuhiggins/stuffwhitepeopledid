@@ -1,9 +1,3 @@
-<% if facebook_connected? %>
-  <%= facebook_picture(facebook_uid) %>
-<% else %>
-  <fb:login-button></fb:login-button>
-<% end %>
-
 <div id="recent-white-accomplishments">
   <h2>Recent White Accomplishments</h2>
   <ul>
@@ -14,8 +8,7 @@
         <% end %>
         <div class="accomplishment">
           <div class="message">
-            likes
-            <%= link_to_post user.latest_accomplishment.post %>
+            <%= link_to_post user.latest_accomplishment.post %>.
           </div>
           <div class="time">
           <%= time_ago_in_words user.latest_accomplishment.created_at %> ago

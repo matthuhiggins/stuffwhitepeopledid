@@ -1,0 +1,9 @@
+#posts-show {
+  
+}
+
+#posts-show .have-you-done-this {
+  float: right;
+  padding: 10px;
+  width: 35%;
+}

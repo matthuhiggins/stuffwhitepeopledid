@@ -1,12 +1,11 @@
 body {
   font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
   font-size: 11px;
-  margin: 0 auto;
-  width: 700px;
 }
 
 a {
   color: #3B5998;
+  font-size: 11px;
   outline-style: none;
   text-decoration: none;
 }
@@ -15,41 +14,36 @@ a:hover {
   text-decoration: underline;
 }
 
-#recent-white-accomplishments {
+h2 {
+  color: #1C2A47;
+  font-size: 16px;
+}
+
+h2 a {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+#banner {
+  background-color: #3B5998;
+  height: 35px;
   padding-top: 10px;
 }
 
-#recent-white-accomplishments h2 {
-  color: #1C2A47;
-  font-size: 16px;
-  padding-bottom: 16px;
+.body {
+  margin: 0 auto;
+  width: 700px;
 }
 
-#recent-white-accomplishments li {
+#header a {
+  color: white;
+}
+
+#header .title {
+  font-size: 20px;
+}
+
+#content {
   overflow: hidden;
-  padding: 10px 0;
-}
-
-#recent-white-accomplishments li + li {
-  border-top: 1px solid #E9E9E9;
-}
-
-#recent-white-accomplishments .pic {
-  float: left;
-  margin-right: 10px;
-}
-
-#recent-white-accomplishments .accomplishment {
-  display: table-cell;
-  vertical-align: top;
-/*  width: 1000px;*/
-}
-
-#recent-white-accomplishments .message {
-  font-size: 13px;
-  margin-bottom: 5px;
-}
-
-#recent-white-accomplishments .time {
-  color: #808080;
+  padding: 10px;
 }

@@ -1,5 +1,6 @@
 class Accomplishment < ActiveRecord::Base
   belongs_to :user, :inverse_of => :accomplishments
+  scope :recent, order('id desc')
   
   after_create do
     user.update_attributes(

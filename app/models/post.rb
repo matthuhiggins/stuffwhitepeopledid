@@ -142,7 +142,11 @@ class Post < Struct.new(:number, :title, :url)
     def all
       ARTICLES
     end
-    
+
+    def count
+      ARTICLES.size
+    end
+
     private
       def articles_by_number
         @@articles_by_number ||= ARTICLES.index_by(&:number)

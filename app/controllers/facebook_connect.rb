@@ -1,5 +1,10 @@
-module FacebookCookie
-  extend ActiveSupport::Memoizable
+module FacebookConnect
+  extend ActiveSupport::Concern
+  
+  included do
+    extend ActiveSupport::Memoizable
+    memoize :facebook_cookie
+  end
 
   private
     def facebook_cookie
@@ -20,7 +25,6 @@ module FacebookCookie
         hash
       end
     end
-    memoize :facebook_cookie
 
     def facebook_user
       if facebook_cookie.present?

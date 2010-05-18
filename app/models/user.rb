@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
-  has_many :accomplishments
+  has_many :accomplishments, :inverse_of => :user
+  belongs_to :latest_accomplishment, :class_name => 'Accomplishment'
 
   attr_accessor :access_token
-
+  
   def progress
     accomplishments_count.to_f / Post.count.to_f
   end

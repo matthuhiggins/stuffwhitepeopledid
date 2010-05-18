@@ -1,5 +1,19 @@
 class Accomplishment < ActiveRecord::Base
-  belongs_to :user, :counter_cache => true
+  belongs_to :user, :inverse_of => :accomplishments
+  
+  after_create do
+    user.update_attributes(
+      :accomplishments_count => user.accomplishments_count + 1,
+      :latest_accomplishment => self
+    )
+  end
+
+  before_destroy do
+    user.update_attributes(
+      :accomplishments_count => user.accomplishments_count - 1,
+      :latest_accomplishment => user.latest_accomplishment == self ? nil : user.latest_accomplishment
+    )
+  end
   
   def post
     Post.find(post_number)

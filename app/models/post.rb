@@ -157,4 +157,8 @@ class Post < Struct.new(:number, :title, :url)
   def <=>(post)
     number <=> post.number
   end
+
+  def accomplishments
+    Accomplishment.where :post_number => number
+  end
 end

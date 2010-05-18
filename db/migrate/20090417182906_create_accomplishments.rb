@@ -1,7 +1,8 @@
 class CreateAccomplishments < ActiveRecord::Migration
   def self.up
     create_table :accomplishments do |t|
-      t.integer :user_id, :post_number, :null => false
+      t.integer :user_id,     :null => false
+      t.integer :post_number, :null => false
       t.timestamps
     end
     add_index :accomplishments, [:user_id, :post_number], :unique => true

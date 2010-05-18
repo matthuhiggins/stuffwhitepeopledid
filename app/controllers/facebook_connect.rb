@@ -36,7 +36,7 @@ module FacebookConnect
     end
 
     def facebook_app_id
-      '69162949889'
+      '90926621564'
     end
 
     def facebook_secret

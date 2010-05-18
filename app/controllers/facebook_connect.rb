@@ -4,10 +4,18 @@ module FacebookConnect
   included do
     extend ActiveSupport::Memoizable
     memoize :facebook_cookie
-    helper_method :facebook_user, :facebook_app_id, :facebook_cookie
+    helper_method :facebook_connected?, :facebook_user, :facebook_app_id, :facebook_cookie
   end
 
   private
+    def facebook_app_id
+      '90926621564'
+    end
+
+    def facebook_secret
+      '6045be51632c0658b3021c5653295ca1'
+    end
+  
     def facebook_cookie
       return unless (cookie = cookies["fbs_#{facebook_app_id}"])
       cookie = cookie.gsub(/^\"|\"$/, '')
@@ -27,19 +35,19 @@ module FacebookConnect
       end
     end
 
+    def facebook_connected?
+      facebook_cookie.present?
+    end
+
+    def facebook_uid
+      facebook_cookie['uid']
+    end
+
     def facebook_user
-      if facebook_cookie.present?
-        @facebook_user ||= User.find_or_create_by_fb_uid(facebook_cookie['uid'])
+      if facebook_connected?
+        @facebook_user ||= User.find_or_create_by_fb_uid(facebook_uid)
         @facebook_user.access_token = facebook_cookie['access_token']
         @facebook_user
       end
-    end
-
-    def facebook_app_id
-      '90926621564'
-    end
-
-    def facebook_secret
-      '6045be51632c0658b3021c5653295ca1'
     end
 end

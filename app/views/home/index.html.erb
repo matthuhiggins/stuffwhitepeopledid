@@ -1,3 +1,5 @@
-<fb:login-button show-faces="true"></fb:login-button>
-
-facebook cookie: <%= debug facebook_cookie %>
+<% if facebook_connected? %>
+  <%= facebook_picture(facebook_uid) %>
+<% else %>
+  <fb:login-button></fb:login-button>
+<% end %>

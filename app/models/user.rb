@@ -8,6 +8,12 @@ class User < ActiveRecord::Base
   end
 
   def friends
-    
+    data = GraphApi.friends(access_token)
+    friend_ids = data.map { |attributes| attributes['id'].to_i }
+    User.where :fb_uid => friend_ids
+  end
+
+  def wall_post(message)
+    GraphApi.wall_post message
   end
 end

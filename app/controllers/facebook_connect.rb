@@ -25,6 +25,8 @@ module FacebookCookie
     def facebook_user
       if facebook_cookie.present?
         @facebook_user ||= User.find_or_create_by_fb_uid(facebook_cookie['uid'])
+        @facebook_user.access_token = facebook_cookie['access_token']
+        @facebook_user
       end
     end
 

@@ -65,3 +65,20 @@
   [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
   [1m[36mSQL (0.6ms)[0m  [1mUPDATE "users" SET "accomplishments_count" = COALESCE("accomplishments_count", 0) + 1 WHERE ("id" = 1)[0m
   [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "users" ("accomplishments_count", "created_at", "fb_uid", "updated_at") VALUES (0, '2010-05-18 18:23:53.871631', 1, '2010-05-18 18:23:53.871631')
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "accomplishments" ("created_at", "post_number", "updated_at", "user_id") VALUES ('2010-05-18 18:23:53.953381', 37, '2010-05-18 18:23:53.953381', 1)[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE "users" SET "accomplishments_count" = COALESCE("accomplishments_count", 0) + 1 WHERE ("id" = 1)[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("accomplishments_count", "created_at", "fb_uid", "updated_at") VALUES (0, '2010-05-18 18:23:53.990635', 1, '2010-05-18 18:23:53.990635')
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "accomplishments" ("created_at", "post_number", "updated_at", "user_id") VALUES ('2010-05-18 18:23:53.994007', 1, '2010-05-18 18:23:53.994007', 1)[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "users" SET "accomplishments_count" = COALESCE("accomplishments_count", 0) + 1 WHERE ("id" = 1)[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  Processing by HomeController#index as HTML
+Rendered shared/_facebook_js.html.erb (0.5ms)
+Rendered home/index.html.erb within layouts/landing (4.1ms)
+Completed 200 OK in 10ms (Views: 9.5ms | ActiveRecord: 0.0ms)

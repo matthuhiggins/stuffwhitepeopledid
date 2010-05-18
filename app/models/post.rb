@@ -136,7 +136,7 @@ class Post < Struct.new(:number, :title, :url)
 
   class << self
     def find(number)
-      articles_by_number[number]
+      articles_by_number[number.to_i]
     end
     
     def all

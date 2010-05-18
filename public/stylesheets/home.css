@@ -18,6 +18,7 @@
 #recent-white-accomplishments .pic {
   float: left;
   margin-right: 10px;
+  width: 50px;
 }
 
 #recent-white-accomplishments .accomplishment {
@@ -29,6 +30,10 @@
 #recent-white-accomplishments .message {
   font-size: 13px;
   margin-bottom: 5px;
+}
+
+#recent-white-accomplishments .name {
+  font-weight: bold;
 }
 
 #recent-white-accomplishments .time {

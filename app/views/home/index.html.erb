@@ -4,14 +4,18 @@
     <% User.recently_accomplished.each do |user| %>
       <li>
         <%= link_to user, :class => 'pic' do %>
-          <%= facebook_picture user.fb_uid %>
+          <%= facebook_picture(user.fb_uid) %>
         <% end %>
         <div class="accomplishment">
           <div class="message">
+            <%= link_to user, :class => 'name' do %>
+              <%= facebook_name(user.fb_uid) %>
+            <% end %>
             <%= link_to_post user.latest_accomplishment.post %>.
           </div>
           <div class="time">
-          <%= time_ago_in_words user.latest_accomplishment.created_at %> ago
+            <%= time_ago_in_words user.latest_accomplishment.created_at %> ago
+          </div>
         </div>
       </li>
     <% end %>

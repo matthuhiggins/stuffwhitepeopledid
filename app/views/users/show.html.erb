@@ -1,4 +1,19 @@
-<h2>
+<div id="profile-info">
   <%= facebook_picture(@user.fb_uid) %>
-  <%= 'Wilt Chamblin' %>
-</h2>
+  <h2>
+    <%= facebook_name(@user.fb_uid) %>
+  </h2>
+  White progress:
+  <%= number_to_percentage(@user.progress * 100) %>
+</div>
+
+<div id="accomplishments">
+  <strong>
+    Accomplishments:
+  </strong>
+  <ul>
+    <% @user.accomplishments.each do |accomplishment| %>
+      <li><%= link_to_post accomplishment.post %></li>
+    <% end %>
+  </ul>
+</div>

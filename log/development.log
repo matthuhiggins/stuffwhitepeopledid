@@ -579,3 +579,9 @@ Migrating to CreateAccomplishments (20090417182906)
   [1m[35mSQL (0.2ms)[0m  PRAGMA index_info('index_accomplishments_on_user_id_and_post_number')
   [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("users")[0m
   [1m[35mSQL (0.2ms)[0m  PRAGMA index_info('index_users_on_fb_uid')
+
+
+Started GET "/" for 127.0.0.1 at 2010-05-18 10:26:23
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/landing (53.2ms)
+Completed 200 OK in 59ms (Views: 58.7ms | ActiveRecord: 0.0ms)

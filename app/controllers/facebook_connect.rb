@@ -4,7 +4,7 @@ module FacebookConnect
   included do
     extend ActiveSupport::Memoizable
     memoize :facebook_cookie
-    helper_method :facebook_connected?, :facebook_user, :facebook_app_id, :facebook_cookie
+    helper_method :facebook_connected?, :facebook_uid, :facebook_user, :facebook_app_id
   end
 
   private

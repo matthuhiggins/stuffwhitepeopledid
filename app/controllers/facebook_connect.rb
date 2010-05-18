@@ -40,6 +40,6 @@ module FacebookConnect
     end
 
     def facebook_secret
-      '7ca5744c4ca98036aa2861ba777c7660'
+      '6045be51632c0658b3021c5653295ca1'
     end
 end

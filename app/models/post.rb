@@ -153,6 +153,12 @@ class Post < Struct.new(:number, :title, :url)
       end
   end
 
+  extend ActiveModel::Naming
+  
+  def to_param
+    number
+  end
+
   include Comparable
   def <=>(post)
     number <=> post.number

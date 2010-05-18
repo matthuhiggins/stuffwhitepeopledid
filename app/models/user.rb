@@ -4,6 +4,14 @@ class User < ActiveRecord::Base
 
   attr_accessor :access_token
   
+  named_scope :recently_accomplished, order('latest_accomplishment_id desc').limit(30).includes(:latest_accomplishment)
+
+  # class << self
+  #   def recently_accomplished
+  #     order('latest_accomplishment_id desc').limit(30).includes(:latest_accomplishment)
+  #   end
+  # end
+  
   def progress
     accomplishments_count.to_f / Post.count.to_f
   end

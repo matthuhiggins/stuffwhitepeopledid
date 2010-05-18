@@ -585,3 +585,20 @@ Started GET "/" for 127.0.0.1 at 2010-05-18 10:26:23
   Processing by HomeController#index as HTML
 Rendered home/index.html.erb within layouts/landing (53.2ms)
 Completed 200 OK in 59ms (Views: 58.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-05-18 10:31:40
+
+SyntaxError (/Users/matthuhiggins/websites/stuffwhitepeopledid/app/controllers/facebook_connect.rb:45: syntax error, unexpected kEND, expecting $end):
+  app/controllers/application_controller.rb:2
+  app/controllers/home_controller.rb:1
+
+Rendered /Users/matthuhiggins/.bundle/ruby/1.8/gems/actionpack-3.0.0.beta3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered /Users/matthuhiggins/.bundle/ruby/1.8/gems/actionpack-3.0.0.beta3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.3ms)
+Rendered /Users/matthuhiggins/.bundle/ruby/1.8/gems/actionpack-3.0.0.beta3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-05-18 10:32:10
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/landing (52.2ms)
+Completed 200 OK in 57ms (Views: 57.2ms | ActiveRecord: 0.0ms)

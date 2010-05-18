@@ -1,0 +1,67 @@
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "users" ("accomplishments_count", "created_at", "fb_uid", "updated_at") VALUES (0, '2010-05-18 04:11:10.952169', 1, '2010-05-18 04:11:10.952169')
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "accomplishments" ("created_at", "post_number", "updated_at", "user_id") VALUES ('2010-05-18 04:11:10.995207', 1, '2010-05-18 04:11:10.995207', 1)[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "users" SET "accomplishments_count" = COALESCE("accomplishments_count", 0) + 1 WHERE ("id" = 1)[0m
+  [1m[36mSQL (0.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "users" ("accomplishments_count", "created_at", "fb_uid", "updated_at") VALUES (0, '2010-05-18 04:11:34.031077', 1, '2010-05-18 04:11:34.031077')
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "accomplishments" ("created_at", "post_number", "updated_at", "user_id") VALUES ('2010-05-18 04:11:34.071372', 1, '2010-05-18 04:11:34.071372', 1)[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "users" SET "accomplishments_count" = COALESCE("accomplishments_count", 0) + 1 WHERE ("id" = 1)[0m
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "users" ("accomplishments_count", "created_at", "fb_uid", "updated_at") VALUES (0, '2010-05-18 04:12:14.040868', 1, '2010-05-18 04:12:14.040868')
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "accomplishments" ("created_at", "post_number", "updated_at", "user_id") VALUES ('2010-05-18 04:12:14.079061', 1, '2010-05-18 04:12:14.079061', 1)[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE "users" SET "accomplishments_count" = COALESCE("accomplishments_count", 0) + 1 WHERE ("id" = 1)[0m
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "users" ("accomplishments_count", "created_at", "fb_uid", "updated_at") VALUES (0, '2010-05-18 04:12:44.675502', 1, '2010-05-18 04:12:44.675502')
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "accomplishments" ("created_at", "post_number", "updated_at", "user_id") VALUES ('2010-05-18 04:12:44.713594', 1, '2010-05-18 04:12:44.713594', 1)[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (1.1ms)[0m  [1mUPDATE "users" SET "accomplishments_count" = COALESCE("accomplishments_count", 0) + 1 WHERE ("id" = 1)[0m
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("accomplishments_count", "created_at", "fb_uid", "updated_at") VALUES (0, '2010-05-18 04:13:45.319155', 1, '2010-05-18 04:13:45.319155')
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "accomplishments" ("created_at", "post_number", "updated_at", "user_id") VALUES ('2010-05-18 04:13:45.357466', 1, '2010-05-18 04:13:45.357466', 1)[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE "users" SET "accomplishments_count" = COALESCE("accomplishments_count", 0) + 1 WHERE ("id" = 1)[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "users" ("accomplishments_count", "created_at", "fb_uid", "updated_at") VALUES (0, '2010-05-18 04:18:55.550474', 1, '2010-05-18 04:18:55.550474')
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "accomplishments" ("created_at", "post_number", "updated_at", "user_id") VALUES ('2010-05-18 04:18:55.591758', 37, '2010-05-18 04:18:55.591758', 1)[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE "users" SET "accomplishments_count" = COALESCE("accomplishments_count", 0) + 1 WHERE ("id" = 1)[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("accomplishments_count", "created_at", "fb_uid", "updated_at") VALUES (0, '2010-05-18 04:18:55.608508', 1, '2010-05-18 04:18:55.608508')
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "accomplishments" ("created_at", "post_number", "updated_at", "user_id") VALUES ('2010-05-18 04:18:55.611755', 1, '2010-05-18 04:18:55.611755', 1)[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "users" SET "accomplishments_count" = COALESCE("accomplishments_count", 0) + 1 WHERE ("id" = 1)[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "users" ("accomplishments_count", "created_at", "fb_uid", "updated_at") VALUES (0, '2010-05-18 04:19:30.788807', 1, '2010-05-18 04:19:30.788807')
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "accomplishments" ("created_at", "post_number", "updated_at", "user_id") VALUES ('2010-05-18 04:19:30.827739', 37, '2010-05-18 04:19:30.827739', 1)[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (1.2ms)[0m  [1mUPDATE "users" SET "accomplishments_count" = COALESCE("accomplishments_count", 0) + 1 WHERE ("id" = 1)[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("accomplishments_count", "created_at", "fb_uid", "updated_at") VALUES (0, '2010-05-18 04:19:30.846436', 1, '2010-05-18 04:19:30.846436')
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "accomplishments" ("created_at", "post_number", "updated_at", "user_id") VALUES ('2010-05-18 04:19:30.850212', 1, '2010-05-18 04:19:30.850212', 1)[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "users" SET "accomplishments_count" = COALESCE("accomplishments_count", 0) + 1 WHERE ("id" = 1)[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1

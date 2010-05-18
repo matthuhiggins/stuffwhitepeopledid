@@ -11,13 +11,14 @@
 
 ActiveRecord::Schema.define(:version => 20090417182906) do
 
-  create_table "accomplishments", :id => false, :force => true do |t|
+  create_table "accomplishments", :force => true do |t|
     t.integer  "user_id",     :null => false
     t.integer  "post_number", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "accomplishments", ["post_number"], :name => "index_accomplishments_on_post_number"
   add_index "accomplishments", ["user_id", "post_number"], :name => "index_accomplishments_on_user_id_and_post_number", :unique => true
 
   create_table "users", :force => true do |t|

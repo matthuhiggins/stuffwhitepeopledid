@@ -1,13 +1,41 @@
-<div id="posts-show">
-  <h2>
-    <%= pluralize(@post.accomplishments.count, 'person') %> <%= @post.title %>
-    <%= link_to 'View original article', url_for_original_post(@post) %>
-  </h2>
-  <div >
-  <div class="have-you-done-this">
+<h2>
+  <%= pluralize(@post.accomplishments.count, 'white person') %> <%= @post.title %>
+  <%= link_to 'View original article', url_for_original_post(@post) %>
+</h2>
+<div id="have-you-done-this">
+  <p>
+    <strong>I also <%= @post.first_person_title %>!</strong>
+  </p>
+  <% if facebook_connected? %>
     <a class="fb_button fb_button_medium">
-      <span class="fb_button_text">I cooked with Sea Salt</span>
+      <span class="fb_button_text">
+        Add to my accomplishments
+      </span>
     </a>
-  </div>
+  <% else %>
+    <p>
+      If you've already done this, you may as well login
+      to show your friends how white you really are.
+    </p>
+    <fb:login-button></fb:login-button>
+  <% end %>
+</div>
+
+<% if facebook_connected? %>
+<% end %>
+
+<div id="other-white-people">
+  <strong>White people who recently did this:</strong>
+  <% @post.accomplishments.recent.includes(:user).limit(20).in_groups_of(4) do |accomplishments| %>
+    <div class="people">
+      <% accomplishments.each do |accomplishment| %>
+        <div class="person">
+          <%= link_to accomplishment.user do %>
+            <%= facebook_picture(accomplishment.user.fb_uid, :size => 'square') %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
 

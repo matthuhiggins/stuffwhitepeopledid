@@ -164,6 +164,10 @@ class Post < Struct.new(:number, :title, :url)
     number <=> post.number
   end
 
+  def first_person_title
+    title.gsub(/they/, 'you').gsub(/their/, 'your')
+  end
+
   def accomplishments
     Accomplishment.where :post_number => number
   end

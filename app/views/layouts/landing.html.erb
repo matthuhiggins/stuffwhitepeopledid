@@ -7,11 +7,13 @@
   <div id="banner">
     <div id="header" class="body">
       <%= link_to 'Stuff White People Did', root_path, :class => 'title' %>
-      <% if facebook_connected? %>
-        <%= facebook_picture(facebook_uid) %>
-      <% else %>
-        <fb:login-button></fb:login-button>
-      <% end %>
+      <div id="menu">
+        <% if facebook_connected? %>
+          <%= facebook_picture(facebook_uid) %>
+        <% else %>
+          <fb:login-button></fb:login-button>
+        <% end %>
+      </div>
     </div>
   </div>
   <div id="content" class="body">

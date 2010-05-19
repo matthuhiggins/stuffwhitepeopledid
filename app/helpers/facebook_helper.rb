@@ -1,6 +1,6 @@
 module FacebookHelper
-  def facebook_picture(uid)
-    content_tag 'fb:profile-pic', '', :uid => uid, :linked => false
+  def facebook_picture(uid, options = {})
+    content_tag 'fb:profile-pic', '', options.reverse_merge(:uid => uid, :linked => false)
     # image_tag "http://graph.facebook.com/#{uid}/picture"
   end
 

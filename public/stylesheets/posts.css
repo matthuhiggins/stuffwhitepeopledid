@@ -1,9 +1,35 @@
-#posts-show {
-  
+h2 {
+  border-bottom: 1px solid #E9E9E9;
+  padding-bottom: 10px;
 }
 
-#posts-show .have-you-done-this {
+#have-you-done-this {
+  border-bottom: 1px solid #E9E9E9;
+  border-left: 1px solid #E9E9E9;
+  border-right: 1px solid #E9E9E9;
   float: right;
+  font-size: 13px;
   padding: 10px;
-  width: 35%;
+  width: 45%;
+}
+
+#have-you-done-this p {
+  margin-bottom: 5px;
+}
+
+#other-white-people {
+  float: left;
+  padding-top: 10px;
+  width: 45%;
+}
+
+#other-white-people .people {
+  padding: 5px 0;
+  overflow: hidden;
+}
+
+#other-white-people .person {
+  float: left;
+  text-align: center;
+  width: 70px;
 }

@@ -18,9 +18,14 @@ class GraphApi
     #   ]
     # }
     def friends(access_token)
-      url = "#{root_path}/me/friends?access_token=#{access_token}&fields=id"
-      body = Net::HTTP.get URI.parse(url)
-      ActiveSupport::JSON.decode(json)['data']
+      url = "#{root_path}/me/friends?access_token=#{CGI.escape(access_token)}&fields=id"
+      uri = URI.parse(url)
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = true
+      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+      request = Net::HTTP::Get.new(uri.request_uri)
+      response = http.request(request)
+      ActiveSupport::JSON.decode(response.body)['data']
     end
 
     def wall_post(access_token, message)

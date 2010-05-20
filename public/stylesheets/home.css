@@ -56,3 +56,24 @@
 #recent-white-accomplishments .time {
   color: #808080;
 }
+
+#white-friends {
+  float: left;
+  width: 50%;
+}
+
+#random-white-thing {
+  float: right;
+  width: 35%;
+}
+
+#random-white-thing .question {
+  font-weight: bold;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 9px;
+  padding-bottom: 5px;
+}
+
+#random-white-thing .full-list {
+  margin-top: 10px;
+}

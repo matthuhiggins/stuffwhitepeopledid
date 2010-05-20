@@ -1,22 +1,25 @@
-<h2>Hello <%= facebook_name(facebook_user.fb_uid) %></h2>
+<div id="white-friends">
+  <h2>Hello <%= facebook_name(facebook_user.fb_uid) %></h2>
+  <h2>You are whiter than 50% of your friends</h2>
+</div>
 
 <div id="random-white-thing">
   <% Post.all.choice.tap do |post| %>
-    <strong><%= post.first_person_title %></strong>
+    <div class="question"><%= post.question %>?</div>
+    <a class="fb_button fb_button_medium">
+      <span class="fb_button_text">
+        Yes!
+      </span>
+    </a>
+    <div class="full-list">
+      <%= link_to 'Show the full list', posts_path %>
+    </div>
   <% end %>
-</div>
-
-<div id="white-friends">
-  <h2>You are whiter than 50% of your friends</h2>
 </div>
 
 <script>
 $(function() {
   // $.getScript(url, function() {
-  function addWhiggerFriend(whigger) {
-    var el = document.createElement('div'),
-        link = document.createElement('a');
-  }
 
   // SWPD.friends(function(whiggers) {
   //   $.each(whiggers, function(i, whigger) {

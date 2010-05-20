@@ -18,7 +18,7 @@ module FacebookConnect
   
     def facebook_cookie
       if Rails.development?
-        cookie = 
+        cookie = ''
       else
         return unless (cookie = cookies["fbs_#{facebook_app_id}"])
       end

@@ -282,12 +282,7 @@ class Whiggers
     end
 
     def random_posts
-      posts = Post.all.dup
-      posts.each_with_index do |post, index|
-        rand_index = rand(Post.count)
-        posts[index], posts[rand_index] = posts[rand_index], posts[index]
-      end
-      posts[0, rand(Post.count)]
+      Post.all.shuffle[0, rand(Post.count)]
     end
   end
 end

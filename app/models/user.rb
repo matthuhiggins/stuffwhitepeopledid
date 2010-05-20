@@ -10,13 +10,11 @@ class User < ActiveRecord::Base
     accomplishments_count.to_f / Post.count.to_f
   end
 
-  def friends
-    data = GraphApi.friends(access_token)
-    friend_ids = data.map { |attributes| attributes['id'].to_i }
-    User.where :fb_uid => friend_ids
-  end
-
-  def wall_post(message)
-    GraphApi.wall_post message
+  def serializable_hash(options = {})
+    {
+      :id                     => id,
+      :fb_uid                 => fb_uid.to_s,
+      :accomplishments_count  => accomplishments_count
+    }
   end
 end

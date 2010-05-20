@@ -17,11 +17,8 @@ module FacebookConnect
     end
   
     def facebook_cookie
-      if Rails.env.development?
-        cookie = '"access_token=90926621564%7C2.YbCUK4peX5BgnVnarUfx8g__.3600.1274389200-1029652102%7CoSAI1FYsMh29dT9NwHLH5w63Hzc.&expires=1274389200&secret=o1hJrkFEvewFeY_MfaYL_g__&session_key=2.YbCUK4peX5BgnVnarUfx8g__.3600.1274389200-1029652102&sig=8a028dc7db944a858493192a1cacf31a&uid=1029652102"'
-      else
-        return unless (cookie = cookies["fbs_#{facebook_app_id}"])
-      end
+      return unless (cookie = cookies["fbs_#{facebook_app_id}"])
+
       cookie = cookie.gsub(/^\"|\"$/, '')
       hash = Rack::Utils::parse_query(cookie)
       sorted_pairs = hash.sort

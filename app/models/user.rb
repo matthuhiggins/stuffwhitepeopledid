@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
   attr_accessor :access_token
   
-  scope :recently_accomplished, order('latest_accomplishment_id desc').limit(15).includes(:latest_accomplishment)
+  scope :recently_accomplished, where('latest_accomplishment_id is not null').order('latest_accomplishment_id desc').limit(15).includes(:latest_accomplishment)
 
   # class << self
   #   def recently_accomplished

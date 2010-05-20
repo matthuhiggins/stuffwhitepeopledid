@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :fb_uid,                    :null => false
       t.integer :accomplishments_count,     :null => false, :default => 0
       t.integer :latest_accomplishment_id
-      t.timestamps
+      t.created_at
     end
     add_index :users, :fb_uid, :unique => true
     add_index :users, :latest_accomplishment_id

@@ -17,7 +17,11 @@ module FacebookConnect
     end
   
     def facebook_cookie
-      return unless (cookie = cookies["fbs_#{facebook_app_id}"])
+      if Rails.development?
+        cookie = 
+      else
+        return unless (cookie = cookies["fbs_#{facebook_app_id}"])
+      end
       cookie = cookie.gsub(/^\"|\"$/, '')
       hash = Rack::Utils::parse_query(cookie)
       sorted_pairs = hash.sort

@@ -1,4 +1,4 @@
-require 'test_helper'
+require 'functional_test_helper'
 
 class HomeControllerTest < ActionController::TestCase
   def test_index_not_connected

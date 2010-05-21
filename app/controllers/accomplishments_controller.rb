@@ -1,10 +1,13 @@
 class AccomplishmentsController < ApplicationController
   def create
-    accomplishment = facebook_user.accomplishments.create params[:accomplishment]
+    unless facebook_user.accomplishments.exists?  :post_number => params[:post_number]
+      accomplishment = facebook_user.accomplishments.create :post_number => params[:post_number]
+    end
+    head :ok
   end
 
   def destroy
-    accomplishment = facebook_user.accomplishments.find params[:id]
-    accomplishment.destroy
+    facebook_user.accomplishments.where(:post_number => params[:id]).destroy_all
+    head :ok
   end
 end

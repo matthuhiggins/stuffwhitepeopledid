@@ -4,20 +4,12 @@ module FacebookConnect
   included do
     extend ActiveSupport::Memoizable
     memoize :facebook_cookie
-    helper_method :facebook_connected?, :facebook_uid, :facebook_user, :facebook_app_id
+    helper_method :facebook_connected?, :facebook_uid, :facebook_user
   end
 
   private
-    def facebook_app_id
-      '90926621564'
-    end
-
-    def facebook_secret
-      '6045be51632c0658b3021c5653295ca1'
-    end
-  
     def facebook_cookie
-      return unless (cookie = cookies["fbs_#{facebook_app_id}"])
+      return unless (cookie = cookies["fbs_#{Facebook.app_id}"])
 
       cookie = cookie.gsub(/^\"|\"$/, '')
       hash = Rack::Utils::parse_query(cookie)
@@ -30,7 +22,7 @@ module FacebookConnect
         end
       end
     
-      md5 = Digest::MD5.hexdigest("#{payload}#{facebook_secret}")
+      md5 = Digest::MD5.hexdigest("#{payload}#{Facebook.secret}")
       if md5 == hash['sig']
         hash
       end

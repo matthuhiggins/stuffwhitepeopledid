@@ -1,4 +1,4 @@
-require 'test_helper'
+require 'functional_test_helper'
 
 class UsersControllerTest < ActionController::TestCase
   def test_show

@@ -80,7 +80,7 @@ class Post < Struct.new(:number, :title, :question, :url)
     new(55, "gave an apology", "have you recently given an apology", "2008/02/05/55-apologies"),
     new(54, "bought a kitchen gadget and never used it", "have you bought a kitched gadget and never used it", "2008/02/05/54-kitchen-gadgets"),
     new(53, "walked a dog", "have you walked a dog recently", "2008/02/04/53-dogs"),
-    new(52, "laughed at Sarah Silverman joke", "have you laughed at a Sarah Silverman joke", "2008/02/04/52-sarah-silverman"),
+    new(52, "laughed at a Sarah Silverman joke", "have you laughed at a Sarah Silverman joke", "2008/02/04/52-sarah-silverman"),
     new(51, "lived by the water", "have you lived by the water", "2008/02/04/51-living-by-the-water"),
     new(50, "did something ironic", "have you done something ironic recently", "2008/02/03/50-irony"),
     new(49, "buys vintage clothing", "do you buy vintage clothing", "2008/02/03/49-vintage"),

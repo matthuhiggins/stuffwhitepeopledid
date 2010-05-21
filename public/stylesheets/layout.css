@@ -13,7 +13,7 @@ a:hover {
   text-decoration: underline;
 }
 
-a img {
+a:hover img {
   text-decoration: none;
 }
 

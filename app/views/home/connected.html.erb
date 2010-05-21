@@ -6,11 +6,7 @@
 <div id="random-white-thing">
   <% Post.all.choice.tap do |post| %>
     <div class="question"><%= post.question %>?</div>
-    <a class="fb_button fb_button_medium">
-      <span class="fb_button_text">
-        Yes!
-      </span>
-    </a>
+    <%= facebook_button 'Yes' %>
     <div class="full-list">
       <%= link_to 'Show the full list', posts_path %>
     </div>

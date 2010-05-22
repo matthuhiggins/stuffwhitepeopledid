@@ -1,5 +1,5 @@
 <h2>
-  <%= pluralize(@post.accomplishments.count, 'white person') %> <%= @post.title %>
+  <%= @post.accomplishments.count %> white people <%= @post.title %>
   <%= link_to 'View original article', url_for_original_post(@post) %>
 </h2>
 <div id="have-you-done-this">

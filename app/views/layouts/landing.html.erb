@@ -10,10 +10,9 @@
       <%= link_to 'Stuff White People Did', root_path, :class => 'title' %>
       <div id="menu">
         <% if facebook_connected? %>
-          <%= facebook_picture(facebook_uid, :size => 'small') %>
-        <% else %>
-          <fb:login-button></fb:login-button>
+          <%= facebook_picture(facebook_uid, :height => 28) %>
         <% end %>
+        <fb:login-button></fb:login-button>
       </div>
     </div>
   </div>

@@ -3,10 +3,6 @@
 <script>
   FB.init({appId: '<%= Facebook.app_id %>', status: true, cookie: true, xfbml: true});
   FB.Event.subscribe('auth.sessionChange', function(response) {
-    if (response.session) {
-      alert('logged in');
-    } else {
-      alert('logged out');
-    }
+    location.reload();
   });
 </script>

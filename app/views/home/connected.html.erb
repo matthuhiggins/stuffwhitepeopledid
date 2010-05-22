@@ -8,7 +8,7 @@
     <div class="question"><%= post.question %>?</div>
     <%= facebook_button 'Yes' %>
     <div style="margin: 6px 0;">
-      <%= @post.accomplishments.count %> white people <%= @post.title %>
+      <%= post.accomplishments.count %> white people <%= post.title %>
     </div>
     <div class="full-list">
       <%= link_to 'Show the full list', posts_path %>

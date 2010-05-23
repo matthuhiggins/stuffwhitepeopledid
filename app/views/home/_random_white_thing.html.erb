@@ -9,7 +9,7 @@
   <% facebook_user.incomplete.choice.tap do |post| %>
     <div class="question"><%= post.question %>?</div>
     <%= facebook_button 'Yes' %>
-    <%= link_tag 'Maybe later', {}, :id => 'maybe-later' %>
+    <%= link_to 'Maybe later', {}, :id => 'maybe-later' %>
     <div style="margin: 6px 0;">
       <%= pluralize(post.accomplishments.count, "white person #{post.title}", "white people #{post.third_person_plural}") %>
     </div>

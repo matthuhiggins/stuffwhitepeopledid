@@ -8,9 +8,40 @@
   margin-right: 8px;
 }
 
+#profile-info .name-progress {
+  float: left;
+}
+
 #profile-info h2 {
-  display:table-cell;
-  vertical-align:top;
+  margin-bottom: 3px;
+}
+
+#profile-info h2 .last-accomplishment {
+  font-size: 12px;
+  color: #808080;
+}
+
+#profile-info .progress {
+  overflow: hidden;
+  text-align: right;
+}  
+
+#profile-info .meter {
+  border: 1px solid #ccc;
+  float: left;
+  height: 20px;
+  width: 300px;
+}
+
+#profile-info .meter .filled {
+  background-color: #82c55d;
+  height: 100%;
+}
+
+#profile-info .percent {
+  float: left;
+  font-size: 14px;
+  padding: 2px 0 0 6px;
 }
 
 #accomplishments {
@@ -23,4 +54,8 @@
 
 #accomplishments li {
   padding-top: 2px;
+}
+
+#accomplishments .date {
+  font-size: 11px;
 }

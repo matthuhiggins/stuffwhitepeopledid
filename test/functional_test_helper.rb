@@ -2,6 +2,23 @@ require 'test_helper'
 
 module ActionController
   class TestCase
+    module FriendActionTests
+      def test_empty_friends
+        facebook_get :friends
+        assert_response :ok
+      end
+
+      def test_any_friends
+        user_1 = User.create(:fb_uid => 1)
+        user_2 = User.create(:fb_uid => 2)
+        user_3 = User.create(:fb_uid => 3)
+
+        get :friends, :fb_uids => '2,3'
+
+        assert_equal [user_2, user_3].to_set, assigns(:users).to_set
+      end
+    end
+
     [:get, :post, :put, :delete].each do |method|
       class_eval <<-RUBY_EVAL, __FILE__, __LINE__ + 1
         def facebook_#{method}(*args)

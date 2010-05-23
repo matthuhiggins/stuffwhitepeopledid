@@ -1,6 +1,6 @@
 class Post < Struct.new(:number, :title, :question, :url)
   ARTICLES = [
-    new(132, "picked {possessive} own fruit", "have you picked your own fruit", "2010/03/14/132-picking-{possessive}-own-fruit"),
+    new(132, "picked their own fruit", "have you picked your own fruit", "2010/03/14/132-picking-{possessive}-own-fruit"),
     new(131, "likes Conan O’Brien", "do you like Conan O’Brien", "2010/01/13/130-conan-obrien"),
     new(130, "wore Ray-Ban Wayfarers", "did you wear Ray-Bans", "2009/12/22/130-ray-ban-wayfarers"),
     new(129, "likes Banksy", "do you like Banksy", "2009/10/04/129-banksy"),
@@ -154,6 +154,7 @@ class Post < Struct.new(:number, :title, :question, :url)
   end
 
   extend ActiveModel::Naming
+  extend ActiveSupport::Memoizable
   
   def to_param
     number
@@ -166,14 +167,14 @@ class Post < Struct.new(:number, :title, :question, :url)
 
   def first_person_title
     value = title.dup
-    
     value.gsub!('has', 'have')
     value.gsub!('their', 'my')
-    value.gsub!('is', 'am')
-    value.gsub!(/^([a-z]+)ies/, '\1y')
-    value.gsub!(/^([a-z]+)s/, '\1')
+    value.gsub!('is ', 'am ')
+    value.gsub!(/^([a-z]+)ies /, '\1y ')
+    value.gsub!(/^([a-z]+)s /, '\1 ')
     value
   end
+  memoize :first_person_title
 
   def accomplishments
     Accomplishment.where :post_number => number

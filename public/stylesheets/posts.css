@@ -30,6 +30,7 @@ h2 {
 
 #other-white-people .person {
   float: left;
+  margin-right: 5px;
   text-align: center;
-  width: 70px;
+  width: 60px;
 }

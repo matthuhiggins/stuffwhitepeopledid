@@ -1,19 +1,41 @@
 <div id="profile-info">
   <%= facebook_picture(@user.fb_uid) %>
-  <h2>
-    <%= facebook_name(@user.fb_uid) %>
-  </h2>
-  White progress:
-  <%= number_to_percentage(@user.progress * 100) %>
+  <div class="name-progress">
+    <h2>
+      <%= facebook_name(@user.fb_uid) %>
+      <% if @user.latest_accomplishment.present? %>
+        <span class="last-accomplishment">
+          <%= @user.latest_accomplishment.title %>
+          <%= time_ago_in_words @user.latest_accomplishment.created_at %>
+          ago
+        </span>
+      <% end %>
+      </h2>
+    </h2>
+    <strong>White Progress Meter</strong>
+    <div class="progress">
+      <div class="meter">
+        <%= content_tag :div, '', :class => 'filled', :style => "width: #{number_to_percentage(@user.progress * 100)}" %>
+      </div>
+      <div class="percent">
+        <%= number_to_percentage(@user.progress * 100, :precision => 1) %> White
+      </div>
+    </div>
+  </div>
 </div>
 
 <div id="accomplishments">
   <strong>
-    Accomplishments:
+    White things about me:
   </strong>
   <ul>
     <% @user.accomplishments.each do |accomplishment| %>
-      <li><%= link_to_post accomplishment.post %></li>
+      <li>
+        <span class="date">
+          
+        </span>
+        <%= link_to accomplishment.post.first_person_title, accomplishment.post %>
+      </li>
     <% end %>
   </ul>
 </div>

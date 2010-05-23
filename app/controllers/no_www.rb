@@ -1,5 +1,5 @@
 module NoWww
-  include ActiveSupport::Concern
+  extend ActiveSupport::Concern
 
   included do
     before_filter :redirect_if_www
@@ -8,7 +8,7 @@ module NoWww
   private
     def redirect_if_www
       if request.subdomains.first == 'www'
-        redirect_to 'http://homeworkbin.com'
+        redirect_to 'http://stuffwhitepeopledid.com'
       end
     end
 end

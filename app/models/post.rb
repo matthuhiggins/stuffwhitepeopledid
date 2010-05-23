@@ -1,6 +1,6 @@
 class Post < Struct.new(:number, :title, :question, :url)
   ARTICLES = [
-    new(132, "picked their own fruit", "have you picked your own fruit", "2010/03/14/132-picking-their-own-fruit"),
+    new(132, "picked {possessive} own fruit", "have you picked your own fruit", "2010/03/14/132-picking-{possessive}-own-fruit"),
     new(131, "likes Conan O’Brien", "do you like Conan O’Brien", "2010/01/13/130-conan-obrien"),
     new(130, "wore Ray-Ban Wayfarers", "did you wear Ray-Bans", "2009/12/22/130-ray-ban-wayfarers"),
     new(129, "likes Banksy", "do you like Banksy", "2009/10/04/129-banksy"),
@@ -32,7 +32,7 @@ class Post < Struct.new(:number, :title, :question, :url)
     new(103, "wore a sweater", "have you worn a sweater", "104-sweaters"),
     new(102, "plays children games", "do you play children games" "102-childrens-games-as-adults"),
     new(101, "became offended by a prejudice comment", "have you become offended by a prejudice comment" "2008/05/28/101-being-offended"),
-    new(100, "has bumper stickers on their car", "does your car have bumper stickers", "2008/05/21/100-bumper-stickers"),
+    new(100, "has bumper stickers on {possessive} car", "does your car have bumper stickers", "2008/05/21/100-bumper-stickers"),
     new(99, "corrects everyone's grammar", "do you correct everyone's grammar", "2008/05/12/99-grammar"),
     new(98, "envies the Ivy League", "do you envy Ivy League schools", "2008/05/06/98-the-ivy-league"),
     new(97, "wore a scarf", "have you worn a scarf", "2008/04/30/97-scarves"),
@@ -55,7 +55,7 @@ class Post < Struct.new(:number, :title, :question, :url)
     new(80, "talked about playing soccer", "do you talk about playing soccer", "2008/03/03/80-the-idea-of-soccer"),
     new(79, "buys modern furniture", "do you buy modern furniture", "2008/03/02/79-modern-furniture"),
     new(78, "appreciates a multilingual child", "do you appreciate a multilingual child", "2008/02/28/78-multilingual-children"),
-    new(77, "enjoys musical comedies", "do you enjoy musical comedies", "2008/02/28/77-musical-comedy"),
+    new(77, "enjoyed musical comedy", "have you enjoyed a musical comedy", "2008/02/28/77-musical-comedy"),
     new(76, "buys bottled water", "do you buy bottled water", "2008/02/26/76-bottles-of-water"),
     new(75, "threatened to move to Canada", "have you threatened to move to Canada", "2008/02/24/75-threatening-to-move-to-canada"),
     new(74, "went to an Oscar party", "have you been to an Oscar party", "2008/02/24/74-oscar-parties"),
@@ -88,8 +88,8 @@ class Post < Struct.new(:number, :title, :question, :url)
     new(47, "has an art degree", "do you have an art degree", "2008/02/01/47-arts-degrees"),
     new(46, "read the Sunday New York Times", "have you read the Sunday New York Times", "2008/01/31/45-the-sunday-new-york-times"),
     new(45, "ate at an Asian Fusion restaurant", "have you eaten at an Asian Fusion restaurant", "2008/01/31/45-asian-fusion-food"),
-    new(44, "listens to public radio", "do you listen to public radio", "2008/01/31/44-public-radio"),
-    new(43, "enjoys play", "do you enjoy plays", "2008/01/30/43-plays"),
+    new(44, "listened to public radio", "have you listened to public radio", "2008/01/31/44-public-radio"),
+    new(43, "enjoyed a play", "have you enjoyed a play", "2008/01/30/43-plays"),
     new(42, "ate sushi", "have you eaten sushi", "2008/01/30/42-sushi"),
     new(41, "went to an indie rock concert", "have you been to an indie concert", "2008/01/30/40-indie-music"),
     new(40, "owns multiple Apple products", "do you own multiple Apple products", "2008/01/30/39-apple-products"),
@@ -123,14 +123,14 @@ class Post < Struct.new(:number, :title, :question, :url)
     new(12, "worked for a non-profit", "have you worked for a non-profit", "2008/01/21/12-non-profit-organizations"),
     new(11, "likes asian girls", "do you like asian girls", "2008/01/20/11-asian-girls"),
     new(10, "watched a Wes Anderson movie", "have you watched a Wes Anderson movie", "2008/01/20/11-wes-anderson-movies"),
-    new(9, "makes people feel bad about not going outside", "do you make people feel bad about not going outside", "2008/01/20/9-making-you-feel-bad-about-not-going-outside"),
+    new(9, "made someone feel bad about not going outside", "have you made someone feel bad about not going outside", "2008/01/20/9-making-you-feel-bad-about-not-going-outside"),
     new(8, "voted for Barack Obama", "did you vote for Barack Obama", "2008/01/19/8-barack-obama"),
-    new(7, "celebrates diversity", "do you celebrate diversity", "2008/01/19/7-diversity"),
+    new(7, "celebrated diversity", "haved you celebrated diversity", "2008/01/19/7-diversity"),
     new(6, "eats organic food", "do you eat organic food", "2008/01/19/6-organic-food"),
     new(5, "went to a farmer's market", "have you been to a farmer's market", "2008/01/18/5-farmers-markets"),
     new(4, "likes giving assists more than scoring", "do you like giving assists more than scoring" "2008/01/18/4-assists"),
     new(3, "went to a film festival", "have you been to a film festival", "2008/01/18/3-film-festivals"),
-    new(2, "joined a religion their parents don't belong to", "have you joined a religion your parents don't belong to", "2008/01/18/2-religions-that-their-parents-dont-belong-to"),
+    new(2, "joined a religion their parents don't belong to", "have you joined a religion your parents don't belong to", "2008/01/18/2-religions-that-{possessive}-parents-dont-belong-to"),
     new(1, "drinks coffee", "do you drink coffee", "2008/01/18/1-coffee")
   ]
 
@@ -165,7 +165,13 @@ class Post < Struct.new(:number, :title, :question, :url)
   end
 
   def first_person_title
-    title.gsub(/they/, 'you').gsub(/their/, 'your')
+    value = title.dup
+    
+    value.gsub!('has', 'have')
+    value.gsub!('their', 'my')
+    value.gsub!('is', 'am')
+    value.gsub!(/^([a-z]+)s/, '\1')
+    value
   end
 
   def accomplishments

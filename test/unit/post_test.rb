@@ -23,4 +23,9 @@ class PostTest < ActiveSupport::TestCase
     assert_equal [accomplishment_1], Post.find(1).accomplishments
     assert_equal [accomplishment_2], Post.find(2).accomplishments
   end
+  
+  def test_first_person_title
+    assert_equal 'hate my parents', Post.find(17).first_person_title
+    assert_equal 'have a funny tattoo', Post.find(121).first_person_title
+  end
 end

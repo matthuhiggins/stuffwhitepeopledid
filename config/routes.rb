@@ -1,5 +1,6 @@
 StuffWhitePeopleDid::Application.routes.draw do
   root :to => "home#index"
+  match 'me/:action' => 'home'
   resources :accomplishments, :only => [:create, :destroy]
 
   resources :users, :only => [:index, :show]

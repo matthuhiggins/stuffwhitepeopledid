@@ -10,4 +10,8 @@ class HomeControllerTest < ActionController::TestCase
     facebook_get :index
     assert_response :ok
   end
+
+  def test_friends
+    facebook_get :friends, :format => 'js'
+  end
 end

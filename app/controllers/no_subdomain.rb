@@ -1,4 +1,4 @@
-module NoWww
+module NoSubdomain
   extend ActiveSupport::Concern
 
   included do
@@ -7,7 +7,7 @@ module NoWww
 
   private
     def redirect_if_www
-      if request.subdomains.first == 'www'
+      if request.subdomains.any?
         redirect_to 'http://stuffwhitepeopledid.com'
       end
     end

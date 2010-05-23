@@ -25,6 +25,7 @@ class PostTest < ActiveSupport::TestCase
   end
   
   def test_first_person_title
+    assert_equal 'envy the Ivy League', Post.find(98).first_person_title
     assert_equal 'hate my parents', Post.find(17).first_person_title
     assert_equal 'have a funny tattoo', Post.find(121).first_person_title
   end

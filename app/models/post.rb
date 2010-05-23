@@ -144,7 +144,7 @@ class Post < Struct.new(:number, :title, :question, :url)
     end
 
     def count
-      ARTICLES.size
+      all.size
     end
 
     private
@@ -170,6 +170,7 @@ class Post < Struct.new(:number, :title, :question, :url)
     value.gsub!('has', 'have')
     value.gsub!('their', 'my')
     value.gsub!('is', 'am')
+    value.gsub!(/^([a-z]+)ies/, '\1y')
     value.gsub!(/^([a-z]+)s/, '\1')
     value
   end

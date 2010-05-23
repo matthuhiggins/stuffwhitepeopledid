@@ -6,8 +6,6 @@
       <% if @user.latest_accomplishment.present? %>
         <span class="last-accomplishment">
           <%= @user.latest_accomplishment.title %>
-          <%= time_ago_in_words @user.latest_accomplishment.created_at %>
-          ago
         </span>
       <% end %>
       </h2>
@@ -34,7 +32,7 @@
         <span class="date">
           
         </span>
-        <%= link_to accomplishment.post.first_person_title, accomplishment.post %>
+        <%= link_to accomplishment.post.first_person, accomplishment.post %>
       </li>
     <% end %>
   </ul>

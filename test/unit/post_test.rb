@@ -24,9 +24,17 @@ class PostTest < ActiveSupport::TestCase
     assert_equal [accomplishment_2], Post.find(2).accomplishments
   end
   
-  def test_first_person_title
-    assert_equal 'envy the Ivy League', Post.find(98).first_person_title
-    assert_equal 'hate my parents', Post.find(17).first_person_title
-    assert_equal 'have a funny tattoo', Post.find(121).first_person_title
+  def test_first_person
+    assert_equal 'envy the Ivy League', Post.find(98).first_person
+    assert_equal 'hate my parents', Post.find(17).first_person
+    assert_equal 'am friends with a lawyer', Post.find(56).first_person
+    assert_equal 'have a funny tattoo', Post.find(121).first_person
+  end
+
+  def test_third_person_plural
+    assert_equal 'envy the Ivy League', Post.find(98).third_person_plural
+    assert_equal 'hate their parents', Post.find(17).third_person_plural
+    assert_equal 'are friends with a lawyer', Post.find(56).third_person_plural
+    assert_equal 'have a funny tattoo', Post.find(121).third_person_plural
   end
 end

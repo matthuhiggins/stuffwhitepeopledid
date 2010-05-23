@@ -1,10 +1,10 @@
 <h2>
-  <%= @post.accomplishments.count %> white people <%= @post.title %>
+  <%= pluralize(@post.accomplishments.count, "white person #{@post.title}", "white people #{@post.third_person_plural}") %>
   <%= link_to 'View original article', url_for_original_post(@post) %>
 </h2>
 <div id="have-you-done-this">
   <p>
-    <strong>I also <%= @post.first_person_title %>!</strong>
+    <strong>I also <%= @post.first_person %>!</strong>
   </p>
   <% if facebook_connected? %>
     <a class="fb_button fb_button_medium">

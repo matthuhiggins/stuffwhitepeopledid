@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  extend ActiveSupport::Memoizable
   has_many :accomplishments, :inverse_of => :user
   belongs_to :latest_accomplishment, :class_name => 'Accomplishment'
 
@@ -9,6 +10,12 @@ class User < ActiveRecord::Base
   def progress
     accomplishments_count.to_f / Post.count.to_f
   end
+
+  def incomplete
+    completed_posts = accomplishments.map(&:post)
+    Post.all - completed_posts
+  end
+  memoize :incomplete
 
   def serializable_hash(options = {})
     {

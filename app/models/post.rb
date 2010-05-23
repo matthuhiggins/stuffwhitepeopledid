@@ -165,7 +165,7 @@ class Post < Struct.new(:number, :title, :question, :url)
     number <=> post.number
   end
 
-  def first_person_title
+  def first_person
     value = title.dup
     value.gsub!('has', 'have')
     value.gsub!('their', 'my')
@@ -174,7 +174,16 @@ class Post < Struct.new(:number, :title, :question, :url)
     value.gsub!(/^([a-z]+)s /, '\1 ')
     value
   end
-  memoize :first_person_title
+  memoize :first_person
+
+  def third_person_plural
+    value = title.dup
+    value.gsub!('has', 'have')
+    value.gsub!('is ', 'are ')
+    value.gsub!(/^([a-z]+)ies /, '\1y ')
+    value.gsub!(/^([a-z]+)s /, '\1 ')
+    value
+  end
 
   def accomplishments
     Accomplishment.where :post_number => number

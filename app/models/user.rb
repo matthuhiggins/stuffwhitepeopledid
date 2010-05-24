@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
   
   # Returns [Post, Post, ...]
   def differences(other_user)
-    other_user.completed - similarities(other_user)
+    completed - similarities(other_user)
   end
   memoize :differences
 

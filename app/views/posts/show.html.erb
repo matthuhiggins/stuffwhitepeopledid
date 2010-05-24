@@ -3,14 +3,16 @@
   <%= link_to 'View original article', url_for_original_post(@post) %>
 </h2>
 <div id="have-you-done-this">
-  <p>
-    <strong>I also <%= @post.first_person %>!</strong>
-  </p>
   <% if facebook_connected? %>
     <% if facebook_user.accomplished?(@post) %>
-      You did this already
+      <p>
+        <strong>You <%= @post.second_person %></strong>
+      </p>
       <%= facebook_button 'I was lying', accomplishment_path(@post), :method => :delete %>
     <% else %>
+      <p>
+        <strong>I <%= @post.first_person %>!</strong>
+      </p>
       <%= facebook_button 'Add to my accomplishments', accomplishment_path(@post), :method => :put %>
     <% end %>
   <% else %>

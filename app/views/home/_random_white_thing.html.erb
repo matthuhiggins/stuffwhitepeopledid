@@ -7,7 +7,7 @@
   </p>
 <% else %>
   <% facebook_user.incomplete.choice.tap do |post| %>
-    <div class="question"><%= post.question.capitalize %>?</div>
+    <div class="question"><%= post.question %>?</div>
     <div class="answer">
       <%= facebook_button 'Yes', accomplishment_path(post.number), :method => :put, :class => %w(yes-i-did thumbs-up) %>
       <%= facebook_button 'Not yet', accomplishment_path(post.number), :class => 'not-yet' %>

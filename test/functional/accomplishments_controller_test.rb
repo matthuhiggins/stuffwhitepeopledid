@@ -2,16 +2,20 @@ require 'functional_test_helper'
 
 class AccomplishmentsControllerTest < ActionController::TestCase
   def test_create
-    facebook_post :create, :post_number => 5
+    request.env["Referer"] = '/foo'
+
+    facebook_put :update, :id => 5
     
-    assert_response :ok
+    assert_redirected_to '/foo'
     assert facebook_user.accomplishments.exists?(:post_number => 5)
   end
 
   def test_create_checks_duplicates
+    request.env["Referer"] = '/foo'
     facebook_user.accomplishments.create :post_number => 5
+
     assert_nothing_raised do
-      facebook_post :create, :post_number => 5
+      facebook_put :update, :id => 5
     end
   end
 

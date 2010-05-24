@@ -7,14 +7,16 @@
   </p>
 <% else %>
   <% facebook_user.incomplete.choice.tap do |post| %>
-    <div class="question"><%= post.question %>?</div>
-    <%= facebook_button 'Yes' %>
-    <%= link_to 'Maybe later', {}, :id => 'maybe-later' %>
-    <div style="margin: 6px 0;">
-      <%= pluralize(post.accomplishments.count, "white person #{post.title}", "white people #{post.third_person_plural}") %>
+    <div class="question"><%= post.question.capitalize %>?</div>
+    <div class="answer">
+      <%= facebook_button 'Yes', accomplishment_path(post.number), :method => :put, :class => %w(yes-i-did thumbs-up) %>
+      <%= facebook_button 'Not yet', accomplishment_path(post.number), :class => 'not-yet' %>
     </div>
-    <div class="full-list">
+    <div style="margin: 9px 0;">
+      <%= link_to post_summary(post), post %>
+    </div>
+    <!-- <div class="full-list">
       <%= link_to 'Show the full list', posts_path %>
-    </div>
+    </div> -->
   <% end %>
 <% end %>

@@ -57,23 +57,49 @@
   color: #808080;
 }
 
-#friends {
+#left-side {
   float: left;
-  width: 50%;
+  width: 60%;
 }
 
-#random-white-thing {
+#profile-info {
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+#profile-info img {
+  float: left;
+  margin-right: 8px;
+}
+
+#profile-info .name-progress {
+  float: left;
+}
+
+#profile-info h2 {
+  margin-bottom: 3px;
+}
+
+#right-side {
   float: right;
   width: 35%;
 }
 
-#random-white-thing .question {
-  font-weight: bold;
-  border-bottom: 1px solid #ccc;
-  margin-bottom: 9px;
-  padding-bottom: 5px;
+.random-white-thing + .random-white-thing {
+  border-top: 1px solid #ccc;
+  margin-top: 8px;
+  padding-top: 8px;
 }
 
-#random-white-thing .full-list {
+.random-white-thing .question {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.random-white-thing .not-yet {
+  margin-left: 10px;
+}
+
+.random-white-thing .full-list {
   margin-top: 10px;
 }

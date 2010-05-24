@@ -21,29 +21,6 @@
   color: #808080;
 }
 
-#profile-info .progress {
-  overflow: hidden;
-  text-align: right;
-}  
-
-#profile-info .meter {
-  border: 1px solid #ccc;
-  float: left;
-  height: 20px;
-  width: 300px;
-}
-
-#profile-info .meter .filled {
-  background-color: #82c55d;
-  height: 100%;
-}
-
-#profile-info .percent {
-  float: left;
-  font-size: 14px;
-  padding: 2px 0 0 6px;
-}
-
 #accomplishments {
   font-size: 12px;
 }

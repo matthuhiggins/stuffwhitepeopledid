@@ -1,6 +1,6 @@
 <h2>Things that a white person does</h2>
-<ul>
+<ul id="full-list">
   <% Post.all.each do |post| %>
-    <li><%= link_to_post(post) %></li>
+    <li><%= link_to "##{post.number} #{post.title}", post %></li>
   <% end %>
 </ul>

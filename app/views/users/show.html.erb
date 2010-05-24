@@ -1,5 +1,7 @@
+<%= stylesheet_link_tag 'progress' %>
+
 <div id="profile-info">
-  <%= facebook_picture(@user.fb_uid) %>
+  <%= facebook_picture(@user.fb_uid, :size => 'square') %>
   <div class="name-progress">
     <h2>
       <%= facebook_name(@user.fb_uid) %>
@@ -8,7 +10,6 @@
           <%= @user.latest_accomplishment.title %>
         </span>
       <% end %>
-      </h2>
     </h2>
     <strong>White Progress Meter</strong>
     <div class="progress">

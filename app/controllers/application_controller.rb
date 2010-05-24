@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   include FacebookConnect
   include NoSubdomain
+  include WhiteFriends
   protect_from_forgery
-  layout 'landing'
+  layout 'swpd'
 end

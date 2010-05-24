@@ -1,6 +1,12 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
+  def test_facebook
+    user = create_user
+    assert 1, user.accomplishments.count
+    assert_match 'Facebook', user.accomplishments.first.title
+  end
+
   def test_progress
     user = create_user :accomplishments_count => 2
     assert_equal (2.0 / Post.count), user.progress
@@ -11,6 +17,6 @@ class UserTest < ActiveSupport::TestCase
     post = Post.find(42)
     user.accomplishments.create(:post => post)
 
-    assert_equal (Post.all - [post]), user.incomplete
+    assert_equal (Post.all - [post, Post.facebook]), user.incomplete
   end
 end

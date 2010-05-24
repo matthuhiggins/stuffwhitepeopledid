@@ -9,14 +9,14 @@
     Click Login to start comparing yourself with friends, and measuring white progress.
   </p>
   <p>
-    <fb:login-button show-faces="true"></fb:login-button>
+    <fb:facepile></fb:facepile>
   </p>
 </div>
 
 <div id="recent-white-accomplishments">
   <h2>Recent White Accomplishments</h2>
   <ul>
-    <% User.recently_accomplished.each do |user| %>
+    <% User.recently_accomplished.limit(15).each do |user| %>
       <li>
         <%= link_to user, :class => 'pic' do %>
           <%= facebook_picture(user.fb_uid) %>
@@ -36,7 +36,3 @@
     <% end %>
   </ul>
 </div>
-
-<script>
-$.getScript('/me/friends');
-</script>

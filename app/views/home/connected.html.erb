@@ -1,15 +1,53 @@
-<div id="friends">
-  <h2>Hello <%= facebook_name(facebook_user.fb_uid) %></h2>
-  <h2>You are whiter than 50% of your friends</h2>
+<%= stylesheet_link_tag 'progress' %>
+
+<div id="left-side">
+  <div id="profile-info">
+    <%= facebook_picture(facebook_uid, :size => 'square') %>
+    <div class="name-progress">
+      <h2>
+        Hey
+        <%= facebook_name(facebook_uid, :firstnameonly => true, :useyou => false) %>!
+      </h2>
+      <strong>White Progress Meter</strong>
+      <div class="progress">
+        <div class="meter">
+          <%= content_tag :div, '', :class => 'filled', :style => "width: #{number_to_percentage(facebook_user.progress * 100)}" %>
+        </div>
+        <div class="percent">
+          <%= number_to_percentage(facebook_user.progress * 100, :precision => 1) %> White
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <h2>Recent white stuff</h2>
+    <div id="news-feed">
+      <div class="waiting large"></div>
+    </div>
+  </div>
 </div>
 
-<div id="random-white-thing">
-  <%= render 'random_white_thing' %>
+<div id="right-side">
+  <div class="random-white-thing">
+    <%= render 'random_white_thing' %>
+  </div>
+  <div class="random-white-thing">
+    <%= render 'random_white_thing' %>
+  </div>
+  <div class="random-white-thing">
+    <%= render 'random_white_thing' %>
+  </div>
 </div>
 
 <script>
 $(function() {
-  // $.getScript(url, function() {
-  // FB.ui(share, function(response) { console.log(response); });
+  SWPD.getFriends('/me/feed');
+
+  $('.random-white-thing .not-yet').click(function(event) {
+    event.preventDefault();
+    $(this).parents('.random-white-thing').fadeOut(500, function() {
+      $(this).remove();
+    });
+  });
 });
 </script>

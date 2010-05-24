@@ -7,11 +7,12 @@
     <strong>I also <%= @post.first_person %>!</strong>
   </p>
   <% if facebook_connected? %>
-    <a class="fb_button fb_button_medium">
-      <span class="fb_button_text">
-        Add to my accomplishments
-      </span>
-    </a>
+    <% if facebook_user.accomplished?(@post) %>
+      You did this already
+      <%= facebook_button 'I was lying', accomplishment_path(@post), :method => :delete %>
+    <% else %>
+      <%= facebook_button 'Add to my accomplishments', accomplishment_path(@post), :method => :put %>
+    <% end %>
   <% else %>
     <p>
       If you've already done this, login

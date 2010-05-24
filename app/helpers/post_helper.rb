@@ -6,4 +6,8 @@ module PostHelper
   def url_for_original_post(post)
     "http://stuffwhitepeoplelike.com/#{post.url}"
   end
+
+  def post_summary(post)
+    pluralize(post.accomplishments.count, "white person #{post.title}", "white people #{post.third_person_plural}")
+  end
 end

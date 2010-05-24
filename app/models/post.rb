@@ -1,8 +1,8 @@
 class Post < Struct.new(:number, :title, :question, :url)
   ARTICLES = [
-    new(132, "picked their own fruit", "have you picked your own fruit", "2010/03/14/132-picking-{possessive}-own-fruit"),
+    new(132, "picked their own fruit", "have you picked your own fruit", "2010/03/14/132-picking-their-own-fruit"),
     new(131, "likes Conan O’Brien", "do you like Conan O’Brien", "2010/01/13/130-conan-obrien"),
-    new(130, "wore Ray-Ban Wayfarers", "did you wear Ray-Bans", "2009/12/22/130-ray-ban-wayfarers"),
+    new(130, "wear Ray-Ban Wayfarers", "do you wear Ray-Bans", "2009/12/22/130-ray-ban-wayfarers"),
     new(129, "likes Banksy", "do you like Banksy", "2009/10/04/129-banksy"),
     new(128, "went camping", "have you been camping", "2009/08/14/128-camping"),
     new(127, "read \"Where The Wild Things Are\"", "have you read \"Where The Wild Things Are\"", "2009/07/13/127-where-the-wild-things-are"),
@@ -32,12 +32,12 @@ class Post < Struct.new(:number, :title, :question, :url)
     new(103, "wore a sweater", "have you worn a sweater", "104-sweaters"),
     new(102, "plays children games", "do you play children games" "102-childrens-games-as-adults"),
     new(101, "became offended by a prejudice comment", "have you become offended by a prejudice comment" "2008/05/28/101-being-offended"),
-    new(100, "has bumper stickers on {possessive} car", "does your car have bumper stickers", "2008/05/21/100-bumper-stickers"),
+    new(100, "has bumper stickers on their car", "does your car have bumper stickers", "2008/05/21/100-bumper-stickers"),
     new(99, "corrects everyone's grammar", "do you correct everyone's grammar", "2008/05/12/99-grammar"),
     new(98, "envies the Ivy League", "do you envy Ivy League schools", "2008/05/06/98-the-ivy-league"),
     new(97, "wore a scarf", "have you worn a scarf", "2008/04/30/97-scarves"),
     new(96, "owns New Balance shoes", "do you own New Balance shoes" "2008/04/20/96-new-balance-shoes"),
-    new(95, "played Rugby", "have you played Rugby", "2008/04/10/95-rugby"),
+    new(95, "played rugby", "have you played rugby", "2008/04/10/95-rugby"),
     new(94, "wants free healthcare", "do you want free healthcare" "2008/04/04/94-free-healthcare"),
     new(93, "owns pirated music", "do you own pirated music", "2008/03/30/93-music-piracy"),
     new(92, "bought the book \"Stuff White People Like\"", "do you own the book \"Stuff White People Like\"", "2008/03/26/92-book-deals"),
@@ -130,7 +130,7 @@ class Post < Struct.new(:number, :title, :question, :url)
     new(5, "went to a farmer's market", "have you been to a farmer's market", "2008/01/18/5-farmers-markets"),
     new(4, "likes giving assists more than scoring", "do you like giving assists more than scoring" "2008/01/18/4-assists"),
     new(3, "went to a film festival", "have you been to a film festival", "2008/01/18/3-film-festivals"),
-    new(2, "joined a religion their parents don't belong to", "have you joined a religion your parents don't belong to", "2008/01/18/2-religions-that-{possessive}-parents-dont-belong-to"),
+    new(2, "joined a religion their parents don't belong to", "have you joined a religion your parents don't belong to", "2008/01/18/2-religions-that-their-parents-dont-belong-to"),
     new(1, "drinks coffee", "do you drink coffee", "2008/01/18/1-coffee")
   ]
 
@@ -145,6 +145,10 @@ class Post < Struct.new(:number, :title, :question, :url)
 
     def count
       all.size
+    end
+
+    def facebook
+      @facebook ||= find(106)
     end
 
     private

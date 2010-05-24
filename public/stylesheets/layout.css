@@ -34,12 +34,13 @@ strong {
 
 #banner {
   background-color: #3B5998;
-  height: 35px;
-  padding-top: 10px;
+  height: 40px;
+/*  padding-top: 10px;*/
 }
 
 .body {
   margin: 0 auto;
+  overflow: hidden;
   width: 750px;
 }
 
@@ -50,14 +51,40 @@ strong {
 #header .title {
   float: left;
   font-size: 20px;
-  margin-right: 20px;
+  padding-top: 6px;
+  margin-right: 40px;
 }
 
 #header #menu {
+  font-size: 14px;
   float: left;
+  margin-top: 12px;
 }
 
 #content {
-  overflow: hidden;
   padding: 20px 10px 20px 10px;
+}
+
+.button {
+  background-color: #ECEEF5;
+  border: 1px solid #CAD4E7;
+  display: inline-block;
+  -moz-border-radius: 3px;
+  padding: 4px 5px;
+}
+
+.button:hover {
+  border-color: #9daccd;
+  text-decoration: none;
+}
+
+.button.thumbs-up span {
+  background: transparent url(/images/facebook.png) no-repeat scroll left -33px;
+  padding-left: 19px;
+}
+
+.waiting.large {
+    background: url(/images/waiting_large.gif) left 2px no-repeat;
+    width: 32px;
+    height: 32px;
 }

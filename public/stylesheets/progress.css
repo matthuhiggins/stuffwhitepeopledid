@@ -1,0 +1,22 @@
+.progress .progress {
+  overflow: hidden;
+  text-align: right;
+}  
+
+.progress .meter {
+  border: 1px solid #ccc;
+  float: left;
+  height: 20px;
+  width: 270px;
+}
+
+.progress .meter .filled {
+  background-color: #82c55d;
+  height: 100%;
+}
+
+.progress .percent {
+  float: left;
+  font-size: 14px;
+  padding: 2px 0 0 6px;
+}

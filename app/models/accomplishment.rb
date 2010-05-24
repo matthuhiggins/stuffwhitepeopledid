@@ -12,7 +12,7 @@ class Accomplishment < ActiveRecord::Base
   before_destroy do
     user.update_attributes(
       :accomplishments_count => user.accomplishments_count - 1,
-      :latest_accomplishment => user.latest_accomplishment == self ? nil : user.latest_accomplishment
+      :latest_accomplishment => user.latest_accomplishment == self ? user.accomplishments.last : user.latest_accomplishment
     )
   end
   

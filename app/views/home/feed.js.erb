@@ -1,1 +1,2 @@
 $('#news-feed').html("<%= escape_javascript(render 'feed') %>");
+FB.XFBML.parse(document.getElementById('news-feed'));

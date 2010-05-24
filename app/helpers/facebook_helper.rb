@@ -5,7 +5,7 @@ module FacebookHelper
   end
 
   def facebook_name(uid, options = {})
-    content_tag 'fb:name', '', options.reverse_merge(:uid => uid, :linked => false)
+    content_tag 'fb:name', '', options.reverse_merge(:uid => uid, :useyou => false, :linked => false)
   end
 
   def facebook_button(text, url, html_options = {})

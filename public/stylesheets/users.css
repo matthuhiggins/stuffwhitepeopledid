@@ -26,13 +26,9 @@
 }
 
 #accomplishments ul {
-  margin-left: 8px;
+  margin: 0 0 10px 8px;
 }
 
 #accomplishments li {
   padding-top: 2px;
-}
-
-#accomplishments .date {
-  font-size: 11px;
 }

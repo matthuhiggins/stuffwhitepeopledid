@@ -1,3 +1,5 @@
+<%= stylesheet_include_tag 'shared/feed' %>
+
 <div id="about">
   <h2>How White Are You?</h2>
   <p>
@@ -15,7 +17,7 @@
 
 <div id="recent-white-accomplishments">
   <h2>Recent White Accomplishments</h2>
-  <ul>
+  <ul class="feed">
     <% User.recently_accomplished.limit(15).each do |user| %>
       <li>
         <%= link_to user, :class => 'pic' do %>

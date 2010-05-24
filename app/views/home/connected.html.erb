@@ -1,4 +1,4 @@
-<%= stylesheet_link_tag 'progress' %>
+<%= stylesheet_link_tag 'shared/progress', 'shared/feed' %>
 
 <div id="left-side">
   <div id="profile-info">
@@ -6,7 +6,7 @@
     <div class="name-progress">
       <h2>
         Hey
-        <%= facebook_name(facebook_uid, :firstnameonly => true, :useyou => false) %>!
+        <%= facebook_name(facebook_uid, :firstnameonly => true) %>!
       </h2>
       <strong>White Progress Meter</strong>
       <div class="progress">
@@ -41,7 +41,11 @@
 
 <script>
 $(function() {
-  SWPD.getFriends('/me/feed');
+  try {
+    SWPD.getFriends('/me/feed');
+  } catch (e) {
+    alert(e);
+  }
 
   $('.random-white-thing .not-yet').click(function(event) {
     event.preventDefault();

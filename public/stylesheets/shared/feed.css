@@ -1,0 +1,33 @@
+.feed li {
+  overflow: hidden;
+  padding: 10px 0;
+}
+
+.feed li + li {
+  border-top: 1px solid #E9E9E9;
+}
+
+.feed .pic {
+  float: left;
+  margin-right: 10px;
+  width: 50px;
+}
+
+.feed .accomplishment {
+  display: table-cell;
+  vertical-align: top;
+/*  width: 1000px;*/
+}
+
+.feed .message {
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.feed .name {
+  font-weight: bold;
+}
+
+.feed .time {
+  color: #808080;
+}

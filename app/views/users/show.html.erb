@@ -1,4 +1,4 @@
-<%= stylesheet_link_tag 'progress' %>
+<%= stylesheet_link_tag 'shared/progress' %>
 
 <div id="profile-info">
   <%= facebook_picture(@user.fb_uid, :size => 'square') %>
@@ -24,17 +24,39 @@
 </div>
 
 <div id="accomplishments">
-  <strong>
-    White things about me:
-  </strong>
-  <ul>
-    <% @user.accomplishments.each do |accomplishment| %>
-      <li>
-        <span class="date">
-          
-        </span>
-        <%= link_to accomplishment.post.first_person, accomplishment.post %>
-      </li>
-    <% end %>
-  </ul>
+  <% if facebook_connected? && @user.similarities(facebook_user).any? %>
+    <strong>
+      White things you and <%= facebook_name(@user.fb_uid, :firstnameonly => true) %> both do:
+    </strong>
+    <ul>
+      <% @user.similarities(facebook_user).each do |post| %>
+        <li>
+          <%= link_to post.title, post %>
+        </li>
+      <% end %>
+    </ul>
+    <strong>
+      White things <%= facebook_name(@user.fb_uid, :firstnameonly => true) %> does and you don't:
+    </strong>
+    <ul>
+      <% @user.differences(facebook_user).each do |post| %>
+        <li>
+          <%= link_to post.title, post %>
+        </li>
+      <% end %>
+    </ul>
+    <ul>
+    </ul>
+  <% else %>
+    <strong>
+      White things about me:
+    </strong>
+    <ul>
+      <% @user.accomplishments.each do |accomplishment| %>
+        <li>
+          <%= link_to accomplishment.post.first_person, accomplishment.post %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
 </div>

@@ -1,11 +1,20 @@
-<%= debug @accomplishments %>
-
-
-<%# @accomplishments.each do |accomplishment| %>
-  <li>
-    <%# debug accomplishment %>
-    <%# link_to user, :class => 'pic' do %>
-      <%# facebook_picture(user.fb_uid) %>
-    <%# end %>
-  </li>
-<%# end %>
+<ul class="feed">
+  <% @accomplishments.each do |accomplishment| %>
+    <li>
+      <%= link_to accomplishment.user, :class => 'pic' do %>
+        <%= facebook_picture(accomplishment.user.fb_uid) %>
+      <% end %>
+      <div class="accomplishment">
+        <div class="message">
+          <%= link_to accomplishment.user, :class => 'name' do %>
+            <%= facebook_name(accomplishment.user.fb_uid) %>
+          <% end %>
+          <%= link_to_post accomplishment.post %>.
+        </div>
+        <div class="time">
+          <%= time_ago_in_words accomplishment.created_at %> ago
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>

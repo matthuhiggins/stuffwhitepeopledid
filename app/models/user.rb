@@ -14,20 +14,39 @@ class User < ActiveRecord::Base
   def progress
     accomplishments_count.to_f / Post.count.to_f
   end
-  
+
   def accomplished?(post)
     accomplishments.exists? :post_number => post.number
   end
 
+  # Returns [Post, Post, ...]
+  def completed
+    accomplishments.map(&:post)
+  end
+  memoize :completed
+
+  # Returns [Post, Post, ...]
   def incomplete
-    completed_posts = accomplishments.map(&:post)
-    Post.all - completed_posts
+    Post.all - completed
   end
   memoize :incomplete
 
+  # Returns [Post, Post, ...]
+  def similarities(other_user)
+    completed & other_user.completed
+  end
+  memoize :similarities
+  
+  # Returns [Post, Post, ...]
+  def differences(other_user)
+    other_user.completed - similarities(other_user)
+  end
+  memoize :differences
+
+  # Returns [Accomplishment, Accomplishment, ...]
   def feed(fb_uids)
     fb_uids = fb_uids + [fb_uid]
-    users = User.where(:fb_uid => fb_uids).order('latest_accomplishment_id desc').limit(10)
+    users = User.where(:fb_uid => fb_uids).order('latest_accomplishment_id desc').limit(10).all
     accomplishment_limit = begin
       case users.size
         when 1 then 10
@@ -36,12 +55,12 @@ class User < ActiveRecord::Base
         when 9..10 then 1
       end
     end
-
+    
     returning [] do |accomplishments|
       users.each do |user|
         accomplishments.concat(user.accomplishments.order('id desc').limit(accomplishment_limit))
       end
-      accomplishments.sort! { |a1, a2| a1.created_at <=> a2.created_at }
+      accomplishments.sort! { |a1, a2| a2.created_at <=> a1.created_at }
     end
   end
 end

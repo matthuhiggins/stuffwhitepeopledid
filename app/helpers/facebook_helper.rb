@@ -8,7 +8,7 @@ module FacebookHelper
     content_tag 'fb:name', '', options.reverse_merge(:uid => uid, :useyou => false, :linked => false)
   end
 
-  def facebook_button(text, url, html_options = {})
+  def facebook_button(text, url = {}, html_options = {})
     classes = %w(button)
     if html_options[:class]
       classes << Array.wrap(html_options.delete(:class))

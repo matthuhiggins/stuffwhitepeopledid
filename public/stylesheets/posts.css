@@ -1,6 +1,24 @@
 h2 {
   border-bottom: 1px solid #E9E9E9;
-  padding-bottom: 10px;
+  margin-bottom: 4px;
+  padding-bottom: 7px;
+}
+
+#filters a {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+#filters a.selected {
+  color: #000000;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#filters a + a {
+  margin-left: 5px;
+  padding-left: 5x;
 }
 
 #full-list {
@@ -9,6 +27,10 @@ h2 {
 
 #full-list li {
   padding-bottom: 2px;
+}
+
+#full-list li.complete {
+  display: none;
 }
 
 #have-you-done-this {

@@ -1,6 +1,55 @@
-<h2>Things that a white person does</h2>
-<ul id="full-list">
-  <% Post.all.each do |post| %>
-    <li><%= link_to "##{post.number} #{post.title}", post %></li>
-  <% end %>
-</ul>
+<% if facebook_connected? %>
+  <h2 id="post-header">White things you haven't done</h2>
+
+  <div id="filters">
+    <a id="incomplete" class="selected">Incomplete</a>
+    ·
+    <a id="completed">Completed</a>
+    ·
+    <a id="everything">Everything</a>
+  </div>
+  
+  <ul id="full-list">
+    <% completed_posts = facebook_user.completed.to_set %>
+    <% Post.all.each do |post| %>
+      <%= content_tag :li, :class => completed_posts.include?(post) ? 'complete' : 'incomplete' do %>
+        <%= link_to "##{post.number} #{post.second_person}", post %>
+      <% end %>
+    <% end %>
+  </ul>
+<% else %>
+  <h2 id="post-header">Things that a white person does</h2>
+  <ul id="full-list">
+    <% Post.all.each do |post| %>
+      <%= content_tag :li, :class => rand(3) > 1 ? 'incomplete' : 'complete' do %>
+        <%= link_to "##{post.number} #{post.second_person}", post %>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>
+
+<script>
+$(function() {
+  $('#filters a').click(function() {
+    $('#filters a').removeClass('selected');
+    $(this).addClass('selected');
+  });
+  
+  $('#incomplete').click(function() {
+    $('#full-list .complete').hide();
+    $('#full-list .incomplete').show();
+    $('#post-header').html("White things you haven't done");
+  });
+
+  $('#completed').click(function() {
+    $('#full-list .complete').show();
+    $('#full-list .incomplete').hide();
+    $('#post-header').html("White things you've done");
+  });
+  
+  $('#everything').click(function() {
+    $('#full-list li').show();
+    $('#post-header').html("Things that a white person does");
+  })
+});
+</script>

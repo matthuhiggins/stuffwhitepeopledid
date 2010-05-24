@@ -171,9 +171,9 @@ class Post < Struct.new(:number, :title, :question, :url)
   
   def pluralized
     value = title.dup
+    value.gsub!('has', 'have')
     value.gsub!(/^([a-z]+)ies /, '\1y ')
     value.gsub!(/^([a-z]+)s /, '\1 ')
-    value.gsub!('has', 'have')
     value
   end
 
@@ -191,6 +191,7 @@ class Post < Struct.new(:number, :title, :question, :url)
     value.gsub!('their', 'your')
     value
   end
+  memoize :second_person
 
   def third_person_plural
     value = pluralized

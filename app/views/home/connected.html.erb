@@ -61,7 +61,7 @@ $(function() {
       if (post !== null) {
         renderRandomPost(el, post);
         SWPD.posts.push(post);
-        $(el).stop(true, false).fadeIn();
+        $(el).stop(true, true).fadeIn();
       }
     });
   }

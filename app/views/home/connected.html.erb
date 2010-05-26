@@ -50,7 +50,7 @@ $(function() {
   };
   
   SWPD.posts = <%= raw(random_posts(@random_posts).to_json) %>;
-  SWPD.fb_uid = <%= facebook_uid %>;
+  SWPD.user_id = <%= facebook_user.id %>;
   
   function renderPost(el, post) {
     el = $(el);

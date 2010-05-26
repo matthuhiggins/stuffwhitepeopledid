@@ -29,7 +29,7 @@ SWPD.publish = function(progress) {
         href: 'http://stuffwhitepeopledid.com'
       },
       action_links: [
-        { text: 'View my progress', href: 'http://stuffwhitepeopledid.com/users/' + SWPD.fb_uid }
+        { text: 'View my progress', href: 'http://stuffwhitepeopledid.com/users/' + SWPD.user_id }
       ]
     }
   );

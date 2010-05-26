@@ -48,8 +48,8 @@
 }
 
 #profile-info h2 #publish {
-  display: inline-block;
-  margin-left: 20px;
+  float: right;
+  margin-top: 4px;
 }
 
 #right-side {

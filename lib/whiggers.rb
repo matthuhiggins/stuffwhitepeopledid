@@ -209,10 +209,6 @@ class Whiggers
       "id" => "1267202288"
     },
     {
-      "name" =>"Nancy Navarrete",
-      "id" => "1281316203"
-    },
-    {
       "name" =>"Janet Higgins",
       "id" => "1345494367"
     },

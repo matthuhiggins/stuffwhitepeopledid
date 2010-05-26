@@ -3,7 +3,10 @@ class AccomplishmentsController < ApplicationController
     unless facebook_user.accomplishments.exists?  :post_number => params[:id]
       accomplishment = facebook_user.accomplishments.create :post_number => params[:id]
     end
-    head :ok
+    respond_to do |f|
+      f.html { redirect_to :back }
+      f.js   { head :ok }
+    end
   end
 
   def destroy

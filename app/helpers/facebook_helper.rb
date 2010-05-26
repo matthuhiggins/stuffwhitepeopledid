@@ -1,7 +1,6 @@
 module FacebookHelper
   def facebook_picture(uid, options = {})
     content_tag 'fb:profile-pic', '', options.reverse_merge(:uid => uid, :linked => false)
-    # image_tag "http://graph.facebook.com/#{uid}/picture"
   end
 
   def facebook_name(uid, options = {})
@@ -10,6 +9,7 @@ module FacebookHelper
 
   def facebook_button(text, url = {}, html_options = {})
     classes = %w(button)
+
     if html_options[:class]
       classes << Array.wrap(html_options.delete(:class))
     end

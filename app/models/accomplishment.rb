@@ -3,10 +3,7 @@ class Accomplishment < ActiveRecord::Base
   scope :recent, order('id desc')
   
   after_create do
-    user.update_attributes(
-      :accomplishments_count => user.accomplishments_count + 1,
-      :latest_accomplishment => self
-    )
+    user.update_attribute :latest_accomplishment, self
   end
 
   before_destroy do
@@ -16,10 +13,7 @@ class Accomplishment < ActiveRecord::Base
       latest_accomplishment = user.latest_accomplishment
     end
 
-    user.update_attributes(
-      :accomplishments_count => user.accomplishments_count - 1,
-      :latest_accomplishment => latest_accomplishment
-    )
+    user.update_attribute :latest_accomplishment => latest_accomplishment
   end
   
   def post

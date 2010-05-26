@@ -1,7 +1,7 @@
 require 'functional_test_helper'
 
 class AccomplishmentsControllerTest < ActionController::TestCase
-  def test_create
+  def test_update
     request.env["Referer"] = '/foo'
 
     facebook_put :update, :id => 5

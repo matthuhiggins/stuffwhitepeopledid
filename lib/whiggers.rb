@@ -278,7 +278,11 @@ class Whiggers
     end
 
     def random_posts
-      Post.all.shuffle[0, rand(Post.count)]
+      except_facebook.shuffle[0, rand(Post.count)]
+    end
+
+    def except_facebook
+      @except_facebook ||= (Post.all - [Post.facebook])
     end
   end
 end

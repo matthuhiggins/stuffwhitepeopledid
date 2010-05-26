@@ -2,7 +2,6 @@ class CreateUsers < ActiveRecord::Migration
   def self.up
     create_table :users do |t|
       t.integer   :fb_uid,                    :null => false, :limit => 8
-      t.integer   :accomplishments_count,     :null => false, :default => 0
       t.integer   :latest_accomplishment_id
       t.datetime  :created_at,  :null => false
     end

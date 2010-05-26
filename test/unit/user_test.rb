@@ -8,7 +8,9 @@ class UserTest < ActiveSupport::TestCase
   end
 
   def test_progress
-    user = create_user :accomplishments_count => 2
+    user = create_user
+    user.accomplishments.create :post_number => 42
+    user.accomplishments.create :post_number => 43
     assert_equal (2.0 / Post.count), user.progress
   end
 

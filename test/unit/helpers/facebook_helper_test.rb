@@ -21,7 +21,8 @@ class FacebookHelperTest < ActionView::TestCase
 
   def test_facebook_button
     assert_dom_equal(
-      'poop',
-      facebook_button'Yes', '/poo', :remote => true, :method => :put, :class => %w(yes-i-did thumbs-up)
+      "<a href='/poo' class='button yes-i-did thumbs-up' rel='nofollow' data-method='put'><span>Yes</span></a>",
+      facebook_button('Yes', '/poo', :method => :put, :class => %w(yes-i-did thumbs-up))
+    )
   end
 end

@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   scope :recently_accomplished, where('latest_accomplishment_id is not null').order('latest_accomplishment_id desc').includes(:latest_accomplishment)
 
   def progress
-    accomplishments_count.to_f / Post.count.to_f
+    accomplishments.count.to_f / Post.count.to_f
   end
 
   def accomplished?(post)

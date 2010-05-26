@@ -2,7 +2,9 @@
 
 <div id="left-side">
   <div id="profile-info">
-    <%= facebook_picture(facebook_uid, :size => 'square') %>
+    <div class="pic">
+      <%= facebook_picture(facebook_uid, :size => 'square') %>
+    </div>
     <div class="name-progress">
       <h2>
         Hey
@@ -12,6 +14,7 @@
     </div>
     <%= render 'shared/progress', :user => facebook_user %>
   </div>
+  <%= link_to 'Share your progress on Facebook', {}, :id => 'publish' %>
   <div>
     <h2>Recent white stuff</h2>
     <div id="news-feed">
@@ -34,15 +37,21 @@ $(function() {
 
   SWPD.progress = {
     "total": <%= Post.count %>,
-    "completed": <%= facebook_user.accomplishments_count %>,
+    "completed": <%= facebook_user.accomplishments.count %>,
     "percent": function() {
-      return Math.round(1000 * (this.completed / this.total)) / 10;
+      var fraction = this.completed / this.total;
+      return (Math.round(1000 * fraction) / 10) + '%';
+    },
+    advance: function() {
+      this.completed += 1;
+      $('#progress .filled').width(this.percent());
+      $('#progress .percent').html(this.percent() + ' White');
     }
   };
   
   SWPD.posts = <%= raw(random_posts(@random_posts).to_json) %>;
   
-  function renderRandomPost(el, post) {
+  function renderPost(el, post) {
     el = $(el);
     el.find('.question').html(post.question + '?');
     el.find('.answer a').attr('href', '/accomplishments/' + post.number);
@@ -50,16 +59,16 @@ $(function() {
   }
 
   $('#right-side .random-wrap').each(function(i, el) {
-    renderRandomPost(el, SWPD.posts[i]);
+    renderPost(el, SWPD.posts[i]);
   }).show();
 
-  function loadRandomPost() {
+  function getRandomPost() {
     var existing = SWPD.posts.map(function(post) { return post.number; }).join(',');
 
     var el = this;
     $.getJSON('/me/random_post?existing=' + existing, function(post) {
       if (post !== null) {
-        renderRandomPost(el, post);
+        renderPost(el, post);
         SWPD.posts.push(post);
         $(el).stop(true, true).fadeIn();
       }
@@ -68,15 +77,18 @@ $(function() {
 
   $('#right-side .random-post .yes-i-did').click(function(event) {
     event.preventDefault();
-    SWPD.progress.completed += 1;
-    $('#progress .filled').width(SWPD.progress.percent() + '%');
-    $('#progress .percent').html(SWPD.progress.percent() + '% White');
-    $(this).parents('.random-post').fadeOut(500, loadRandomPost);
+    SWPD.progress.advance();
+    $(this).parents('.random-post').fadeOut(500, getRandomPost);
   });
 
   $('#right-side .random-post .not-yet').click(function(event) {
     event.preventDefault();
-    $(this).parents('.random-post').fadeOut(500, loadRandomPost);
+    $(this).parents('.random-post').fadeOut(500, getRandomPost);
   });
+  
+  $('#publish').click(function(event) {
+    event.preventDefault();
+    SWPD.publish(SWPD.progress.percent());
+  })
 });
 </script>

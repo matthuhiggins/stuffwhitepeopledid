@@ -98,7 +98,7 @@ class Post < Struct.new(:number, :title, :question, :url)
     new(37, "remodeled a house", "Have you remodeled a house", "2008/01/29/37-renovations"),
     new(36, "has a favorite breakfast place", "Do you have a favorite breakfast place", "2008/01/28/36-breakfast-places"),
     new(35, "watched The Daily Show every day of the week", "Have you watched The Daily Show every day of the week", "2008/01/28/35-the-daily-showcolbert-report"),
-    new(34, "appreciate architecture", "Do you appreciate architecture", "2008/01/28/34-architecture"),
+    new(34, "appreciated architecture", "Do you appreciate architecture", "2008/01/28/34-architecture"),
     new(33, "smoked marijuana", "Have you smoked marijuana", "2008/01/27/33-marijuana"),
     new(32, "tried being a vegetarian", "Have you tried being a vegetarian", "2008/01/27/32-veganvegetarianism"),
     new(31, "is a snowboarder", "Are you a snowboarder", "2008/01/27/31-snowboarding"),

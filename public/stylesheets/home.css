@@ -33,8 +33,9 @@
   overflow: hidden;
 }
 
-#profile-info img {
+#profile-info .pic {
   float: left;
+  min-height: 20px;
   margin-right: 8px;
 }
 

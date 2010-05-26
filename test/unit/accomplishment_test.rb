@@ -4,16 +4,13 @@ class AccomplishmentTest < ActiveSupport::TestCase
   def test_create_destroy_lifecycle
     user = create_user
     user.reload
-    assert_equal 1, user.accomplishments_count
     assert_equal Post.facebook, user.latest_accomplishment
     
     accomplishment = user.accomplishments.create :post_number => 1
     user.reload
-    assert_equal 2, user.accomplishments_count
     assert_equal accomplishment, user.latest_accomplishment
 
     accomplishment.destroy
-    assert_equal 1, user.accomplishments_count
     assert_equal Post.facebook, user.latest_accomplishment.post
   end
 

@@ -7,8 +7,8 @@
       <div class="accomplishment">
         <div class="message">
           <% if accomplishment.user == facebook_user %>
-            <span class="name">You</span>
-            <%= link_to accomplishment.post.second_person, accomplishment.post %>
+            You
+            <%= link_to accomplishment.post.second_person, accomplishment.post %>.
           <% else %>
             <%= link_to accomplishment.user, :class => 'name' do %>
               <%= facebook_name(accomplishment.user.fb_uid) %>

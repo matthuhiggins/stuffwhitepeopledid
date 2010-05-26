@@ -10,7 +10,7 @@ window.SWPD.getFriends = (function() {
 
   return function(url) {
     FB.api('/me/friends', function(response) {
-      var fbFriends = response['data'];
+      var fbFriends = response.data;
       $.getScript(friendQueryUrl(url, fbFriends));
     });
   };
@@ -33,4 +33,4 @@ SWPD.publish = function(progress) {
       ]
     }
   );
-}
+};

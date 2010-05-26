@@ -64,7 +64,7 @@ $(function() {
   }).show();
 
   function getRandomPost() {
-    var existing = SWPD.posts.map(function(post) { return post.number; }).join(',');
+    var existing = $.map(SWPD.posts, function(post) { return post.number; }).join(',');
 
     var el = this;
     $.getJSON('/me/random_post?existing=' + existing, function(post) {

@@ -9,15 +9,8 @@
         <%= facebook_name(facebook_uid, :firstnameonly => true) %>!
       </h2>
       <strong>White Progress Meter</strong>
-      <div class="progress">
-        <div class="meter">
-          <%= content_tag :div, '', :class => 'filled', :style => "width: #{number_to_percentage(facebook_user.progress * 100)}" %>
-        </div>
-        <div class="percent">
-          <%= number_to_percentage(facebook_user.progress * 100, :precision => 1) %> White
-        </div>
-      </div>
     </div>
+    <%= render 'shared/progress', :user => facebook_user %>
   </div>
   <div>
     <h2>Recent white stuff</h2>
@@ -28,30 +21,62 @@
 </div>
 
 <div id="right-side">
-  <div class="random-white-thing">
-    <%= render 'random_white_thing' %>
-  </div>
-  <div class="random-white-thing">
-    <%= render 'random_white_thing' %>
-  </div>
-  <div class="random-white-thing">
-    <%= render 'random_white_thing' %>
-  </div>
+  <% @random_posts.each_with_index do |post, i| %>
+    <div class="random-wrap" style="display: none;">
+      <%= render 'random_post' %>
+    </div>
+  <% end %>
 </div>
 
 <script>
 $(function() {
-  try {
-    SWPD.getFriends('/me/feed');
-  } catch (e) {
-    alert(e);
+  SWPD.getFriends('/me/feed');
+
+  SWPD.progress = {
+    "total": <%= Post.count %>,
+    "completed": <%= facebook_user.accomplishments_count %>,
+    "percent": function() {
+      return Math.round(1000 * (this.completed / this.total)) / 10;
+    }
+  };
+  
+  SWPD.posts = <%= raw(random_posts(@random_posts).to_json) %>;
+  
+  function renderRandomPost(el, post) {
+    el = $(el);
+    el.find('.question').html(post.question + '?');
+    el.find('.answer a').attr('href', '/accomplishments/' + post.number);
+    el.find('.summary a').attr('href', '/posts/' + post.number).html(post.summary);
   }
 
-  $('.random-white-thing .not-yet').click(function(event) {
-    event.preventDefault();
-    $(this).parents('.random-white-thing').fadeOut(500, function() {
-      $(this).remove();
+  $('#right-side .random-wrap').each(function(i, el) {
+    renderRandomPost(el, SWPD.posts[i]);
+  }).show();
+
+  function loadRandomPost() {
+    var existing = SWPD.posts.map(function(post) { return post.number; }).join(',');
+
+    var el = this;
+    $.getJSON('/me/random_post?existing=' + existing, function(post) {
+      if (post !== null) {
+        renderRandomPost(el, post);
+        SWPD.posts.push(post);
+        $(el).stop(true, false).fadeIn();
+      }
     });
+  }
+
+  $('#right-side .random-post .yes-i-did').click(function(event) {
+    event.preventDefault();
+    SWPD.progress.completed += 1;
+    $('#progress .filled').width(SWPD.progress.percent() + '%');
+    $('#progress .percent').html(SWPD.progress.percent() + '% White');
+    $(this).parents('.random-post').fadeOut(500, loadRandomPost);
+  });
+
+  $('#right-side .random-post .not-yet').click(function(event) {
+    event.preventDefault();
+    $(this).parents('.random-post').fadeOut(500, loadRandomPost);
   });
 });
 </script>

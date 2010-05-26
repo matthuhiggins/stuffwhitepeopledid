@@ -51,21 +51,29 @@
   width: 35%;
 }
 
-.random-white-thing + .random-white-thing {
+.random-wrap {
+  min-height: 85px;
+}
+
+.random-wrap + .random-wrap {
   border-top: 1px solid #ccc;
   margin-top: 8px;
   padding-top: 8px;
 }
 
-.random-white-thing .question {
+.random-post .question {
   font-weight: bold;
   margin-bottom: 10px;
 }
 
-.random-white-thing .not-yet {
+.random-post .not-yet {
   margin-left: 10px;
 }
 
-.random-white-thing .full-list {
+.random-post .full-list {
   margin-top: 10px;
+}
+
+.random-post .summary {
+  margin: 9px 0;
 }

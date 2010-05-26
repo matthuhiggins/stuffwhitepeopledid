@@ -1,0 +1,5 @@
+<% if @post.present? %>
+  <%= raw random_post(@post).to_json %>
+<% else %>
+  <%= raw nil.to_json %>
+<% end %>

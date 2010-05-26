@@ -1,0 +1,10 @@
+<div class="random-post">
+  <div class="question"></div>
+  <div class="answer">
+    <%= facebook_button 'Yes', {}, :remote => true, :method => :put, :class => %w(yes-i-did thumbs-up) %>
+    <%= facebook_button 'Not yet', {}, :class => 'not-yet' %>
+  </div>
+  <div class="summary">
+    <%= link_to '', {} %>
+  </div>
+</div>

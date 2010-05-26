@@ -6,10 +6,15 @@
       <% end %>
       <div class="accomplishment">
         <div class="message">
-          <%= link_to accomplishment.user, :class => 'name' do %>
-            <%= facebook_name(accomplishment.user.fb_uid, :useyou => true, :capitalize => true) %>
+          <% if accomplishment.user == facebook_user %>
+            <span class="name">You</span>
+            <%= link_to accomplishment.post.second_person, accomplishment.post %>
+          <% else %>
+            <%= link_to accomplishment.user, :class => 'name' do %>
+              <%= facebook_name(accomplishment.user.fb_uid) %>
+            <% end %>
+            <%= link_to_post accomplishment.post %>.
           <% end %>
-          <%= link_to_post accomplishment.post %>.
         </div>
         <div class="time">
           <%= time_ago_in_words accomplishment.created_at %> ago

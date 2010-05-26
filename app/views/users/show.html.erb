@@ -14,14 +14,7 @@
       <% end %>
     </h2>
     <strong>White Progress Meter</strong>
-    <div class="progress">
-      <div class="meter">
-        <%= content_tag :div, '', :class => 'filled', :style => "width: #{number_to_percentage(@user.progress * 100)}" %>
-      </div>
-      <div class="percent">
-        <%= number_to_percentage(@user.progress * 100, :precision => 1) %> White
-      </div>
-    </div>
+    <%= render 'shared/progress', :user => @user %>
   </div>
 </div>
 

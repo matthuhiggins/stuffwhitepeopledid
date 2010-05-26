@@ -18,7 +18,7 @@
     <% end %>
   </ul>
 <% else %>
-  <h2 id="post-header">Things that a white person does</h2>
+  <h2 id="post-header">Things that a white person has done</h2>
   <ul id="full-list">
     <% Post.all.each do |post| %>
       <%= content_tag :li do %>
@@ -49,7 +49,7 @@ $(function() {
   
   $('#everything').click(function() {
     $('#full-list li').show();
-    $('#post-header').html("Things that a white person does");
+    $('#post-header').html("Things that a white person has done");
   })
 });
 </script>

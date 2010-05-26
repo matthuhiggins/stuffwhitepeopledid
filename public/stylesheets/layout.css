@@ -69,8 +69,10 @@ strong {
 .button {
   background-color: #ECEEF5;
   border: 1px solid #CAD4E7;
-  display: inline-block;
+  border-radius: 3px;
   -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  display: inline-block;
   padding: 4px 5px;
 }
 

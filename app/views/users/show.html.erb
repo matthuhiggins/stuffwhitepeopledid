@@ -8,6 +8,8 @@
       <% if @user.latest_accomplishment.present? %>
         <span class="last-accomplishment">
           <%= @user.latest_accomplishment.title %>
+          <%= time_ago_in_words(@user.latest_accomplishment.created_at) %>
+          ago
         </span>
       <% end %>
     </h2>
@@ -52,7 +54,7 @@
       White things about me:
     </strong>
     <ul>
-      <% @user.accomplishments.each do |accomplishment| %>
+      <% @user.accomplishments.recent.each do |accomplishment| %>
         <li>
           <%= link_to accomplishment.post.first_person, accomplishment.post %>
         </li>

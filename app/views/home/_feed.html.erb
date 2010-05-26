@@ -7,7 +7,7 @@
       <div class="accomplishment">
         <div class="message">
           <%= link_to accomplishment.user, :class => 'name' do %>
-            <%= facebook_name(accomplishment.user.fb_uid, :useyou => true) %>
+            <%= facebook_name(accomplishment.user.fb_uid, :useyou => true, :capitalize => true) %>
           <% end %>
           <%= link_to_post accomplishment.post %>.
         </div>

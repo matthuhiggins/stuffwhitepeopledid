@@ -166,7 +166,7 @@ class Post < Struct.new(:number, :title, :question, :url)
 
   include Comparable
   def <=>(post)
-    number <=> post.number
+    post.number <=> number
   end
   
   def pluralized

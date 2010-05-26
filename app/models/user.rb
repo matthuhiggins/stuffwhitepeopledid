@@ -21,7 +21,9 @@ class User < ActiveRecord::Base
 
   # Returns [Post, Post, ...]
   def completed
-    accomplishments.map(&:post)
+    posts = accomplishments.map(&:post)
+    posts.sort!
+    posts
   end
   memoize :completed
 

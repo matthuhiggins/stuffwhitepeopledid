@@ -6,7 +6,7 @@
   <% if facebook_connected? %>
     <% if facebook_user.accomplished?(@post) %>
       <p>
-        <strong>You <%= @post.second_person %></strong>
+        <strong>You already <%= @post.second_person %></strong>
       </p>
       <%= facebook_button 'I was lying', accomplishment_path(@post), :method => :delete %>
     <% else %>

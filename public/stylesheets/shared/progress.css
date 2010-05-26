@@ -1,6 +1,5 @@
-#progress #progress {
+#progress {
   overflow: hidden;
-  text-align: right;
 }  
 
 #progress .meter {

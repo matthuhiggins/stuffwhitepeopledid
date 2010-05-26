@@ -47,6 +47,11 @@
   margin-bottom: 3px;
 }
 
+#profile-info h2 #publish {
+  display: inline-block;
+  margin-left: 20px;
+}
+
 #right-side {
   float: right;
   width: 35%;

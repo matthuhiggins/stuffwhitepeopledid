@@ -29,16 +29,8 @@ SWPD.publish = function(progress) {
         href: 'http://stuffwhitepeopledid.com'
       },
       action_links: [
-        { text: 'Code', href: 'http://github.com/facebook/connect-js' }
-      ],
-      user_prompt_message: 'Share your thoughts about Connect'
-    },
-    function(response) {
-      if (response && response.post_id) {
-        alert('Post was published.');
-      } else {
-        alert('Post was not published.');
-      }
+        { text: 'View my progress', href: 'http://stuffwhitepeopledid.com/users/' + SWPD.fb_uid }
+      ]
     }
   );
 }

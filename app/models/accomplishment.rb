@@ -10,9 +10,15 @@ class Accomplishment < ActiveRecord::Base
   end
 
   before_destroy do
+    if user.latest_accomplishment == self
+      latest_accomplishment = user.accomplishments.recent.offset(1).first
+    else
+      latest_accomplishment = user.latest_accomplishment
+    end
+
     user.update_attributes(
       :accomplishments_count => user.accomplishments_count - 1,
-      :latest_accomplishment => user.latest_accomplishment == self ? user.accomplishments.last : user.latest_accomplishment
+      :latest_accomplishment => latest_accomplishment
     )
   end
   

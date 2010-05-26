@@ -14,7 +14,7 @@ class AccomplishmentTest < ActiveSupport::TestCase
 
     accomplishment.destroy
     assert_equal 1, user.accomplishments_count
-    assert_equal Post.facebook, user.latest_accomplishment
+    assert_equal Post.facebook, user.latest_accomplishment.post
   end
 
   def test_post

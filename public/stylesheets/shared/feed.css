@@ -16,7 +16,6 @@
 .feed .accomplishment {
   display: table-cell;
   vertical-align: top;
-/*  width: 1000px;*/
 }
 
 .feed .message {
@@ -25,9 +24,7 @@
 }
 
 .feed .name {
-  display: inline-block;
   font-weight: bold;
-/*  padding-right: 2px;*/
 }
 
 .feed .time {

@@ -104,7 +104,7 @@ class Post < Struct.new(:number, :title, :question, :url)
     new(31, "is a snowboarder", "Are you a snowboarder", "2008/01/27/31-snowboarding"),
     new(30, "watched Chicago Cubs at Wrigley Field", "Have you watched Chicago Cubs at Wrigley Field", "2008/01/27/30-wrigley-field"),
     new(29, "partied on 80s night", "Have you partied on 80's night", "2008/01/27/29-80s-night"),
-    new(28, "doesn't have a TV", "Do you have a TV", "2008/01/26/28-not-having-a-tv"),
+    new(28, "bragged about not owning a TV", "Have you bragged about not owning a TV", "2008/01/26/28-not-having-a-tv"),
     new(27, "ran a marathon", "Have you ran a marathon", "2008/01/26/27-marathons"),
     new(26, "went to Manhattan", "Have you been to Manhattan", "2008/01/26/26-new-york-city"),
     new(25, "likes David Sedaris", "Do you like David Sedaris", "2008/01/26/25-david-sedaris"),

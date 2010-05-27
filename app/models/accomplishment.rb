@@ -13,7 +13,7 @@ class Accomplishment < ActiveRecord::Base
       latest_accomplishment = user.latest_accomplishment
     end
 
-    user.update_attribute :latest_accomplishment => latest_accomplishment
+    user.update_attribute :latest_accomplishment, latest_accomplishment
   end
   
   def post

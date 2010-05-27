@@ -29,6 +29,7 @@ class PostTest < ActiveSupport::TestCase
     assert_equal 'hate my parents', Post.find(17).first_person
     assert_equal 'am friends with a lawyer', Post.find(56).first_person
     assert_equal 'have a funny tattoo', Post.find(121).first_person
+    assert_equal 'was the only white person around', Post.find(71).first_person
   end
 
   def test_third_person_plural

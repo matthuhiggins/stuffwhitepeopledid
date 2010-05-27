@@ -172,13 +172,19 @@ class Post < Struct.new(:number, :title, :question, :url)
   def pluralized!(value)
     value.gsub!('has', 'have')
     value.gsub!(/^([a-z]+)ies /, '\1y ')
-    value.gsub!(/^([a-z]+)s /, '\1 ')
+    value.gsub!(/^([a-z]+)s /) do |m|
+      if $1 == 'wa'
+        'was '
+      else
+        $1 + ' '
+      end
+    end
   end
 
   def first_person
     value = title.dup
-    value.gsub!('their', 'my')
     value.gsub!('is ', 'am ')
+    value.gsub!('their', 'my')
     pluralized!(value)
     value
   end
@@ -187,6 +193,7 @@ class Post < Struct.new(:number, :title, :question, :url)
   def second_person
     value = title.dup
     value.gsub!('is ', 'are ')
+    value.gsub!('was ', 'were ')
     value.gsub!('their', 'your')
     pluralized!(value)
     value
@@ -196,6 +203,7 @@ class Post < Struct.new(:number, :title, :question, :url)
   def third_person_plural
     value = title.dup
     value.gsub!('is ', 'are ')
+    value.gsub!('was ', 'were ')
     pluralized!(value)
     value
   end

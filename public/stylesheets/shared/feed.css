@@ -25,7 +25,9 @@
 }
 
 .feed .name {
+  display: inline-block;
   font-weight: bold;
+/*  padding-right: 2px;*/
 }
 
 .feed .time {

@@ -5,6 +5,9 @@
   <%= stylesheet_link_tag 'reset', 'layout', controller_name %>
   <%= javascript_include_tag 'jquery', 'rails', 'swpd' %>
   <%= csrf_meta_tag %>
+  <!--[if IE 7]>
+  	<%= stylesheet_link_tag 'ie7' %>
+  <![endif]-->
   <title>Stuff White People Did</title>
 </head>
 <body>
@@ -24,5 +27,6 @@
     <%= yield %>
   </div>
   <%= render 'shared/facebook_js' %>
+  <%= render 'shared/analytics' %>
 </body>
 </html>

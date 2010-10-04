@@ -161,7 +161,7 @@ class Post < Struct.new(:number, :title, :question, :url)
   extend ActiveSupport::Memoizable
   
   def to_param
-    number
+    number.to_s
   end
 
   include Comparable

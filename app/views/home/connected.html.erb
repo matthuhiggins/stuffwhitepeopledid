@@ -12,7 +12,7 @@
         <%= link_to 'Share on Facebook', {}, :id => 'publish' %>
       </h2>
       <strong>White Progress Meter</strong>
-      <%= render 'shared/progress', :user => facebook_user %>
+      <%= render 'shared/progress', :user => fb.user %>
     </div>
   </div>
   <div>
@@ -37,7 +37,7 @@ $(function() {
 
   SWPD.progress = {
     "total": <%= Post.count %>,
-    "completed": <%= facebook_user.accomplishments.count %>,
+    "completed": <%= fb.user.accomplishments.count %>,
     "percent": function() {
       var fraction = this.completed / this.total;
       return (Math.round(1000 * fraction) / 10) + '%';
@@ -50,7 +50,7 @@ $(function() {
   };
   
   SWPD.posts = <%= raw(random_posts(@random_posts).to_json) %>;
-  SWPD.user_id = <%= facebook_user.id %>;
+  SWPD.user_id = <%= fb.user.id %>;
   
   function renderPost(el, post) {
     el = $(el);

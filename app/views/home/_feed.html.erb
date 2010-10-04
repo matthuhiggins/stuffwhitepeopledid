@@ -6,7 +6,7 @@
       <% end %>
       <div class="accomplishment">
         <div class="message">
-          <% if accomplishment.user == facebook_user %>
+          <% if accomplishment.user == fb.user %>
             You
             <%= link_to accomplishment.post.second_person, accomplishment.post %>.
           <% else %>

@@ -19,12 +19,12 @@
 </div>
 
 <div id="accomplishments">
-  <% if facebook_connected? && @user.similarities(facebook_user).any? %>
+  <% if fb.connected? && @user.similarities(fb.user).any? %>
     <strong>
       White things you and <%= facebook_name(@user.fb_uid, :firstnameonly => true) %> both do:
     </strong>
     <ul>
-      <% @user.similarities(facebook_user).each do |post| %>
+      <% @user.similarities(fb.user).each do |post| %>
         <li>
           <%= link_to post.title, post %>
         </li>
@@ -34,7 +34,7 @@
       White things <%= facebook_name(@user.fb_uid, :firstnameonly => true) %> does and you don't:
     </strong>
     <ul>
-      <% @user.differences(facebook_user).each do |post| %>
+      <% @user.differences(fb.user).each do |post| %>
         <li>
           <%= link_to post.title, post %>
         </li>

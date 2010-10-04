@@ -1,7 +1,7 @@
 <div id="fb-root"></div>
 <script src="http://connect.facebook.net/en_US/all.js"></script>
 <script>
-  FB.init({appId: '<%= Facebook.app_id %>', status: true, cookie: true, xfbml: true});
+  FB.init({appId: '<%= FbRails::Config.app_id %>', status: true, cookie: true, xfbml: true});
   FB.Event.subscribe('auth.sessionChange', function(response) {
     location.reload();
   });

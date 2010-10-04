@@ -12,7 +12,7 @@
     <div id="header" class="body">
       <%= link_to 'Stuff White People Did', root_path, :class => 'title' %>
       <div id="menu">
-        <% if facebook_connected? %>
+        <% if fb.connected? %>
           <%= link_to 'Full list of things to do', posts_path %>
         <% else %>
           <fb:login-button></fb:login-button>

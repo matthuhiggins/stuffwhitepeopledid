@@ -3,8 +3,8 @@
   <%= link_to 'View original article', url_for_original_post(@post) %>
 </h2>
 <div id="have-you-done-this">
-  <% if facebook_connected? %>
-    <% if facebook_user.accomplished?(@post) %>
+  <% if fb.connected? %>
+    <% if fb.user.accomplished?(@post) %>
       <p>
         <strong>You already <%= @post.second_person %></strong>
       </p>
@@ -24,7 +24,7 @@
   <% end %>
 </div>
 
-<% if facebook_connected? %>
+<% if fb.connected? %>
 <% end %>
 
 <div id="other-white-people">

@@ -1,12 +1,9 @@
-source :gemcutter
+source 'http://rubygems.org'
 
-gem 'rails',                '3.0.0.beta3'
-
-group :development do
-  gem 'sqlite3-ruby',       '1.2.5',      :require => 'sqlite3'
-end
+gem 'rails',    '3.0.0'
+gem 'mysql2'
+gem 'fb_rails', :git => 'git://github.com/matthuhiggins/fb_rails.git'
 
 group :test do
   gem 'mocha',              '0.9.8'
-  gem 'sqlite3-ruby',       '1.2.5',      :require => 'sqlite3'
 end

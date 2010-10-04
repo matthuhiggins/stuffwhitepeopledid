@@ -1,4 +1,4 @@
-<% if facebook_connected? %>
+<% if fb.connected? %>
   <h2 id="post-header">White things you haven't done</h2>
 
   <div id="filters">
@@ -10,7 +10,7 @@
   </div>
   
   <ul id="full-list">
-    <% completed_posts = facebook_user.completed.to_set %>
+    <% completed_posts = fb.user.completed.to_set %>
     <% Post.all.each do |post| %>
       <%= content_tag :li, :class => completed_posts.include?(post) ? 'complete' : 'incomplete' do %>
         <%= link_to "##{post.number} #{post.second_person}", post %>

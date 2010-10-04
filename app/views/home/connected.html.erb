@@ -3,12 +3,12 @@
 <div id="left-side">
   <div id="profile-info">
     <div class="pic">
-      <%= facebook_picture(facebook_uid, :size => 'square') %>
+      <%= facebook_picture(fb.uid, :size => 'square') %>
     </div>
     <div class="name-progress">
       <h2>
         Hey
-        <%= facebook_name(facebook_uid, :firstnameonly => true) %>
+        <%= facebook_name(fb.uid, :firstnameonly => true) %>
         <%= link_to 'Share on Facebook', {}, :id => 'publish' %>
       </h2>
       <strong>White Progress Meter</strong>

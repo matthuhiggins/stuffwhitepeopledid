@@ -1,7 +1,7 @@
 class Post < Struct.new(:number, :title, :question, :url)
   ARTICLES = [
     new(132, "picked their own fruit", "Have you picked your own fruit", "2010/03/14/132-picking-their-own-fruit"),
-    new(131, "likes Conan O’Brien", "Do you like Conan O’Brien", "2010/01/13/130-conan-obrien"),
+    new(131, "likes Conan O'Brien", "Do you like Conan O'Brien", "2010/01/13/130-conan-obrien"),
     new(130, "wears Ray-Ban Wayfarers", "Do you wear Ray-Bans", "2009/12/22/130-ray-ban-wayfarers"),
     new(129, "likes Banksy", "Do you like Banksy", "2009/10/04/129-banksy"),
     new(128, "went camping", "Have you been camping", "2009/08/14/128-camping"),

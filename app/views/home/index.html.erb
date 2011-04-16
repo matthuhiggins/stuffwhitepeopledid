@@ -1,5 +1,12 @@
 <%= stylesheet_link_tag 'shared/feed' %>
 
+<style>
+#recent-white-accomplishments {
+  float: right;
+  width: 60%;
+}
+</style>
+
 <div id="about">
   <h2>How White Are You?</h2>
   <p>
@@ -15,26 +22,4 @@
   </p>
 </div>
 
-<div id="recent-white-accomplishments">
-  <h2>Recent White Accomplishments</h2>
-  <ul class="feed">
-    <% User.recently_accomplished.limit(15).each do |user| %>
-      <li>
-        <%= link_to user, :class => 'pic' do %>
-          <%= facebook_picture(user.fb_uid) %>
-        <% end %>
-        <div class="accomplishment">
-          <div class="message">
-            <%= link_to user, :class => 'name' do %>
-              <%= facebook_name(user.fb_uid) %>
-            <% end %>
-            <%= link_to_post user.latest_accomplishment.post %>.
-          </div>
-          <div class="time">
-            <%= time_ago_in_words user.latest_accomplishment.created_at %> ago
-          </div>
-        </div>
-      </li>
-    <% end %>
-  </ul>
-</div>
+<%= render 'recent_activity' %>

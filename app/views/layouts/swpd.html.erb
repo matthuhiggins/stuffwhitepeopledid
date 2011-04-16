@@ -18,7 +18,7 @@
         <% if fb.connected? %>
           <%= link_to 'Home', root_path %>
           <%= link_to 'Full List of White Stuff', posts_path %>
-          <%= link_to 'Recent White Activity', posts_path %>
+          <%= link_to 'Recent White Activity', activity_path %>
         <% else %>
           <fb:login-button></fb:login-button>
         <% end %>

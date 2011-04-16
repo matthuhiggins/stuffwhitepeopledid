@@ -58,7 +58,7 @@ class User < ActiveRecord::Base
       end
     end
     
-    returning [] do |accomplishments|
+    [].tap do |accomplishments|
       users.each do |user|
         accomplishments.concat(user.accomplishments.order('id desc').limit(accomplishment_limit))
       end

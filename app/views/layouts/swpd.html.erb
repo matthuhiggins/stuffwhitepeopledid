@@ -16,7 +16,9 @@
       <%= link_to 'Stuff White People Did', root_path, :class => 'title' %>
       <div id="menu">
         <% if fb.connected? %>
-          <%= link_to 'Full list of things to do', posts_path %>
+          <%= link_to 'Home', root_path %>
+          <%= link_to 'Full List of White Stuff', posts_path %>
+          <%= link_to 'Recent White Activity', posts_path %>
         <% else %>
           <fb:login-button></fb:login-button>
         <% end %>

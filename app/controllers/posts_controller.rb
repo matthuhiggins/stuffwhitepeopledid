@@ -1,6 +1,4 @@
 class PostsController < ApplicationController
-  include WhiteFriends
-
   def index
     @posts = Post.all
   end

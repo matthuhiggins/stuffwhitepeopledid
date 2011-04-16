@@ -13,7 +13,6 @@ class HomeController < ApplicationController
     render :layout => false
   end
 
-  include PostHelper
   def random_post
     existing = params[:existing].split(',').map(&:to_i)
     @post = fb.user.incomplete.shuffle.detect { |post| existing.exclude?(post.number) }

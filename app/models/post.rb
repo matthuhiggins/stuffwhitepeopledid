@@ -1,5 +1,7 @@
 class Post < Struct.new(:number, :title, :question, :url)
   ARTICLES = [
+    new(134, "watched a TED talk", "Do you watch TED Talks", "http://stuffwhitepeoplelike.com/2010/09/08/134-the-ted-conference/"),
+    new(133, "watched the World Cup", "Did you watch the World Cup", "http://stuffwhitepeoplelike.com/2010/06/01/133-the-world-cup/"),
     new(132, "picked their own fruit", "Have you picked your own fruit", "2010/03/14/132-picking-their-own-fruit"),
     new(131, "likes Conan O'Brien", "Do you like Conan O'Brien", "2010/01/13/130-conan-obrien"),
     new(130, "wears Ray-Ban Wayfarers", "Do you wear Ray-Bans", "2009/12/22/130-ray-ban-wayfarers"),
